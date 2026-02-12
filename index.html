@@ -6,543 +6,172 @@
     <title>КЛАССИФИКАЦИЯ ВИДЕОИГР | Геймдизайн-гайд (Полный канон)</title>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ===== ОСНОВНАЯ ПАЛИТРА И БАЗОВЫЕ СТИЛИ ===== */
         :root {
-            /* Фоны */
             --bg-deep: #0A0E17;
             --bg-dark: #0F1419;
             --bg-gradient: linear-gradient(160deg, #0A0E17 0%, #0F1419 40%, #1A1A2E 100%);
-            
-            /* Акценты */
             --accent-primary: #4A9EFF;
             --accent-secondary: #00EEFF;
             --accent-tertiary: #9D4EDD;
-            
-            /* Текст */
             --text-primary: #FFFFFF;
             --text-secondary: #B8C2D9;
             --text-muted: #6C7A9E;
             --text-code: #88D3FF;
-            
-            /* Панели */
             --panel-dark: #1A2026;
             --panel-darker: #151B21;
             --panel-border: rgba(74, 158, 255, 0.15);
             --panel-glow: rgba(74, 158, 255, 0.08);
-            
-            /* Специальные */
-            --rating-highlight: #00EEFF;
             --warning: #FF6B6B;
             --success: #4ADE80;
-            
-            /* Эффекты */
             --shadow-deep: 0 12px 32px rgba(0, 0, 0, 0.4);
             --shadow-glow: 0 0 24px rgba(74, 158, 255, 0.15);
             --border-radius: 8px;
-            
-            /* Отступы */
             --space-xs: 8px;
             --space-sm: 16px;
             --space-md: 24px;
             --space-lg: 40px;
             --space-xl: 60px;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            background-color: var(--bg-deep);
-        }
-        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; background-color: var(--bg-deep); }
         body {
-            font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            background: var(--bg-gradient);
-            min-height: 100vh;
-            font-weight: 400;
-            font-size: 16px;
-            overflow-x: hidden;
+            font-family: 'Exo 2', sans-serif; line-height: 1.7; color: var(--text-secondary);
+            background: var(--bg-gradient); min-height: 100vh; font-size: 16px; overflow-x: hidden;
         }
-        
-        /* Космический фон-эффект */
         body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(74, 158, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(74,158,255,0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(157,78,221,0.03) 0%, transparent 50%);
+            pointer-events: none; z-index: -1;
         }
-        
-        /* ===== ТИПОГРАФИЯ ===== */
-        h1, h2, h3, h4 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--text-primary);
-            margin-bottom: 0.8em;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-        
+        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; color: var(--text-primary); margin-bottom: 0.8em; font-weight: 600; letter-spacing: 0.3px; }
         h1 {
-            font-size: 3.2rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-align: center;
-            margin: var(--space-xl) 0 var(--space-lg);
-            padding-bottom: var(--space-md);
-            position: relative;
-            font-weight: 700;
+            font-size: 3.2rem; background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent; text-align: center;
+            margin: var(--space-xl) 0 var(--space-lg); padding-bottom: var(--space-md); position: relative; font-weight: 700;
         }
-        
         h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 3px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                var(--accent-primary), 
-                var(--accent-tertiary), 
-                transparent);
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 180px; height: 3px; background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-tertiary), transparent);
         }
-        
         h2 {
-            font-size: 2rem;
-            color: var(--accent-primary);
-            margin-top: var(--space-xl);
-            margin-bottom: var(--space-md);
-            padding-left: var(--space-sm);
-            position: relative;
-            font-weight: 600;
+            font-size: 2rem; color: var(--accent-primary); margin-top: var(--space-xl); margin-bottom: var(--space-md);
+            padding-left: var(--space-sm); position: relative; font-weight: 600;
         }
-        
-        h2::before {
-            content: '//';
-            position: absolute;
-            left: 0;
-            color: var(--accent-tertiary);
-            font-weight: 500;
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            color: var(--text-primary);
-            margin-top: var(--space-lg);
-            margin-bottom: var(--space-sm);
-            padding-bottom: var(--space-xs);
-            border-bottom: 1px solid rgba(74, 158, 255, 0.2);
-            font-weight: 500;
-        }
-        
-        h4 {
-            font-size: 1.1rem;
-            color: var(--accent-secondary);
-            margin-top: var(--space-md);
-            margin-bottom: var(--space-xs);
-            font-weight: 500;
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        
-        strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-        
-        em {
-            color: var(--text-muted);
-            font-style: italic;
-        }
-        
-        /* ===== КОНТЕЙНЕР И КОМПОНОВКА ===== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-md);
-            position: relative;
-        }
-        
-        /* ===== ПРИНЦИП ===== */
+        h2::before { content: '//'; position: absolute; left: 0; color: var(--accent-tertiary); font-weight: 500; }
+        h3 { font-size: 1.4rem; color: var(--text-primary); margin-top: var(--space-lg); margin-bottom: var(--space-sm); padding-bottom: var(--space-xs); border-bottom: 1px solid rgba(74,158,255,0.2); font-weight: 500; }
+        h4 { font-size: 1.1rem; color: var(--accent-secondary); margin-top: var(--space-md); margin-bottom: var(--space-xs); font-weight: 500; }
+        p { margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary); }
+        strong { color: var(--text-primary); font-weight: 600; }
+        em { color: var(--text-muted); font-style: italic; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); position: relative; }
         .principle {
-            background: var(--panel-darker);
-            border-radius: var(--border-radius);
-            padding: var(--space-lg);
-            margin: var(--space-xl) 0;
-            border: 1px solid rgba(74, 158, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+            background: var(--panel-darker); border-radius: var(--border-radius); padding: var(--space-lg);
+            margin: var(--space-xl) 0; border: 1px solid rgba(74,158,255,0.1); position: relative; overflow: hidden;
         }
-        
-        .principle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-tertiary));
-        }
-        
-        .principle h3 {
-            color: var(--accent-primary);
-            border: none;
-            margin-top: 0;
-        }
-        
-        /* ===== КАРТОЧКИ ===== */
+        .principle::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--accent-primary), var(--accent-tertiary)); }
+        .principle h3 { color: var(--accent-primary); border: none; margin-top: 0; }
         .card {
-            background: var(--panel-dark);
-            border-radius: var(--border-radius);
-            padding: var(--space-lg);
-            margin: var(--space-lg) 0;
-            border: 1px solid var(--panel-border);
-            box-shadow: var(--shadow-deep);
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
+            background: var(--panel-dark); border-radius: var(--border-radius); padding: var(--space-lg);
+            margin: var(--space-lg) 0; border: 1px solid var(--panel-border); box-shadow: var(--shadow-deep);
+            position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; overflow: hidden;
         }
-        
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow), var(--shadow-deep);
-        }
-        
+        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow), var(--shadow-deep); }
         .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(74, 158, 255, 0.02) 0%, 
-                rgba(157, 78, 221, 0.02) 100%);
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(74,158,255,0.02) 0%, rgba(157,78,221,0.02) 100%);
             pointer-events: none;
         }
-        
-        .definition-card {
-            border-left: 4px solid var(--accent-tertiary);
-        }
-        
-        .rule-card {
-            border-left: 4px solid var(--accent-primary);
-        }
-        
-        .top-card {
-            border-left: 4px solid var(--accent-secondary);
-        }
-        
-        /* ===== СПЕЦИАЛЬНЫЕ БЛОКИ ===== */
+        .definition-card { border-left: 4px solid var(--accent-tertiary); }
+        .rule-card { border-left: 4px solid var(--accent-primary); }
+        .top-card { border-left: 4px solid var(--accent-secondary); }
         .note, .important, .warning {
-            padding: var(--space-md);
-            margin: var(--space-md) 0;
-            border-radius: var(--border-radius);
-            border-left: 4px solid;
-            position: relative;
-            background: var(--panel-darker);
+            padding: var(--space-md); margin: var(--space-md) 0; border-radius: var(--border-radius);
+            border-left: 4px solid; position: relative; background: var(--panel-darker);
         }
-        
-        .note {
-            border-left-color: var(--accent-primary);
-        }
-        
-        .note::before {
-            content: 'ℹ️';
-            position: absolute;
-            left: var(--space-md);
-            top: var(--space-md);
-            font-size: 1.2em;
-        }
-        
-        .important {
-            border-left-color: var(--accent-secondary);
-        }
-        
-        .important::before {
-            content: '⚠️';
-            position: absolute;
-            left: var(--space-md);
-            top: var(--space-md);
-            font-size: 1.2em;
-        }
-        
-        .warning {
-            border-left-color: var(--warning);
-        }
-        
-        .warning::before {
-            content: '🚨';
-            position: absolute;
-            left: var(--space-md);
-            top: var(--space-md);
-            font-size: 1.2em;
-        }
-        
-        .note h3, .important h3, .warning h3 {
-            margin-left: 30px;
-            margin-top: 0;
-        }
-        
-        .note p, .important p, .warning p {
-            margin-left: 30px;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* ===== ТАБЛИЦЫ ===== */
+        .note { border-left-color: var(--accent-primary); }
+        .note::before { content: 'ℹ️'; position: absolute; left: var(--space-md); top: var(--space-md); font-size: 1.2em; }
+        .important { border-left-color: var(--accent-secondary); }
+        .important::before { content: '⚠️'; position: absolute; left: var(--space-md); top: var(--space-md); font-size: 1.2em; }
+        .warning { border-left-color: var(--warning); }
+        .warning::before { content: '🚨'; position: absolute; left: var(--space-md); top: var(--space-md); font-size: 1.2em; }
+        .note h3, .important h3, .warning h3 { margin-left: 30px; margin-top: 0; }
+        .note p, .important p, .warning p { margin-left: 30px; margin-bottom: 0.5rem; }
         table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: var(--space-md) 0;
-            font-size: 0.95em;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-deep);
+            width: 100%; border-collapse: separate; border-spacing: 0; margin: var(--space-md) 0;
+            font-size: 0.95em; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-deep);
             background: var(--panel-darker);
         }
-        
         th {
-            background: linear-gradient(90deg, var(--panel-darker), #1E2630);
-            color: var(--accent-primary);
-            font-weight: 600;
-            text-align: left;
-            padding: var(--space-md);
-            border-bottom: 2px solid var(--accent-primary);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, var(--panel-darker), #1E2630); color: var(--accent-primary);
+            font-weight: 600; text-align: left; padding: var(--space-md); border-bottom: 2px solid var(--accent-primary);
+            font-family: 'Orbitron', sans-serif; font-size: 0.9em; letter-spacing: 0.5px;
         }
-        
-        td {
-            padding: var(--space-md);
-            border-bottom: 1px solid rgba(108, 122, 158, 0.15);
-            vertical-align: top;
-            transition: background-color 0.2s ease;
-        }
-        
-        tr {
-            background-color: rgba(26, 32, 38, 0.8);
-        }
-        
-        tr:nth-child(even) {
-            background-color: rgba(21, 27, 33, 0.8);
-        }
-        
-        tr:hover {
-            background-color: rgba(74, 158, 255, 0.05);
-        }
-        
-        /* ===== КОД И ПРИМЕРЫ ===== */
+        td { padding: var(--space-md); border-bottom: 1px solid rgba(108,122,158,0.15); vertical-align: top; transition: background-color 0.2s ease; }
+        tr { background-color: rgba(26,32,38,0.8); }
+        tr:nth-child(even) { background-color: rgba(21,27,33,0.8); }
+        tr:hover { background-color: rgba(74,158,255,0.05); }
         code, .code-block {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            background: rgba(10, 14, 23, 0.7);
-            padding: 2px 8px;
-            border-radius: 4px;
-            color: var(--text-code);
-            font-size: 0.9em;
-            border: 1px solid rgba(74, 158, 255, 0.2);
+            font-family: 'Consolas', 'Monaco', monospace; background: rgba(10,14,23,0.7);
+            padding: 2px 8px; border-radius: 4px; color: var(--text-code); font-size: 0.9em;
+            border: 1px solid rgba(74,158,255,0.2);
         }
-        
         .code-block {
-            display: block;
-            padding: var(--space-md);
-            margin: var(--space-md) 0;
-            overflow-x: auto;
-            white-space: pre;
-            background: var(--panel-darker);
-            border: 1px solid rgba(74, 158, 255, 0.2);
-            border-radius: var(--border-radius);
-            position: relative;
+            display: block; padding: var(--space-md); margin: var(--space-md) 0; overflow-x: auto;
+            white-space: pre; background: var(--panel-darker); border: 1px solid rgba(74,158,255,0.2);
+            border-radius: var(--border-radius); position: relative;
         }
-        
         .code-block::before {
-            content: 'КОД';
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--accent-primary);
-            color: var(--bg-deep);
-            font-size: 0.7em;
-            padding: 4px 12px;
-            border-bottom-left-radius: 6px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
-            letter-spacing: 1px;
+            content: 'КОД'; position: absolute; top: 0; right: 0; background: var(--accent-primary);
+            color: var(--bg-deep); font-size: 0.7em; padding: 4px 12px; border-bottom-left-radius: 6px;
+            font-family: 'Orbitron', sans-serif; font-weight: 600; letter-spacing: 1px;
         }
-        
-        /* ===== СПИСКИ ===== */
-        ul, ol {
-            padding-left: 1.8em;
-            margin: 1.2em 0;
+        ul, ol { padding-left: 1.8em; margin: 1.2em 0; }
+        li { margin-bottom: 0.8em; line-height: 1.7; color: var(--text-secondary); }
+        .type-indicator, .format-indicator {
+            display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600;
+            margin-right: 8px; font-family: 'Orbitron', sans-serif; letter-spacing: 0.5px; border: 1px solid;
         }
-        
-        li {
-            margin-bottom: 0.8em;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-        
-        /* ===== ИНДИКАТОРЫ ТИПОВ ===== */
-        .type-indicator {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-            margin-right: 8px;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.5px;
-            border: 1px solid;
-        }
-        
-        .indicator-original { 
-            background: rgba(74, 158, 255, 0.1); 
-            color: var(--accent-primary);
-            border-color: rgba(74, 158, 255, 0.3);
-        }
-        
-        .indicator-port { 
-            background: rgba(108, 122, 158, 0.1); 
-            color: var(--text-muted);
-            border-color: rgba(108, 122, 158, 0.3);
-        }
-        
-        .indicator-version { 
-            background: rgba(157, 78, 221, 0.1); 
-            color: var(--accent-tertiary);
-            border-color: rgba(157, 78, 221, 0.3);
-        }
-        
-        .indicator-remake { 
-            background: rgba(0, 238, 255, 0.1); 
-            color: var(--accent-secondary);
-            border-color: rgba(0, 238, 255, 0.3);
-        }
-        
-        .indicator-remaster { 
-            background: rgba(77, 217, 128, 0.1); 
-            color: var(--success);
-            border-color: rgba(77, 217, 128, 0.3);
-        }
-        
-        /* Новый индикатор для гибридных случаев */
-        .indicator-hybrid { 
-            background: rgba(255, 171, 0, 0.1); 
-            color: #FFAB00;
-            border-color: rgba(255, 171, 0, 0.3);
-        }
-
-        /* Новый индикатор для ре-релизов */
-        .indicator-rerelease { 
-            background: rgba(148, 110, 230, 0.1); 
-            color: #946EE6;
-            border-color: rgba(148, 110, 230, 0.3);
-        }
-        
-        /* ===== РАЗДЕЛИТЕЛИ ===== */
+        .indicator-original { background: rgba(74,158,255,0.1); color: var(--accent-primary); border-color: rgba(74,158,255,0.3); }
+        .indicator-identical { background: rgba(106,176,255,0.1); color: #6AB0FF; border-color: rgba(106,176,255,0.3); }
+        .indicator-adaptation { background: rgba(255,170,0,0.1); color: #FFAA00; border-color: rgba(255,170,0,0.3); }
+        .indicator-port { background: rgba(108,122,158,0.1); color: var(--text-muted); border-color: rgba(108,122,158,0.3); }
+        .indicator-version { background: rgba(157,78,221,0.1); color: var(--accent-tertiary); border-color: rgba(157,78,221,0.3); }
+        .indicator-remake { background: rgba(0,238,255,0.1); color: var(--accent-secondary); border-color: rgba(0,238,255,0.3); }
+        .indicator-remaster { background: rgba(77,217,128,0.1); color: var(--success); border-color: rgba(77,217,128,0.3); }
+        .indicator-rerelease { background: rgba(148,110,230,0.1); color: #946EE6; border-color: rgba(148,110,230,0.3); }
+        .indicator-expanded { background: rgba(255,215,0,0.1); color: #FFD700; border-color: rgba(255,215,0,0.3); }
+        .indicator-hybrid { background: rgba(255,171,0,0.1); color: #FFAB00; border-color: rgba(255,171,0,0.3); }
+        .indicator-collection { background: rgba(100,200,255,0.1); color: #64C8FF; border-color: rgba(100,200,255,0.3); }
         .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                var(--accent-primary), 
-                var(--accent-tertiary), 
-                transparent);
-            margin: var(--space-xl) 0;
-            position: relative;
+            height: 1px; background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-tertiary), transparent);
+            margin: var(--space-xl) 0; position: relative;
         }
-        
         .section-divider::before {
-            content: '◆';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-deep);
-            color: var(--accent-primary);
-            padding: 0 20px;
-            font-size: 1.2em;
+            content: '◆'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: var(--bg-deep); color: var(--accent-primary); padding: 0 20px; font-size: 1.2em;
         }
-        
-        /* ===== ФУТЕР ===== */
         .footer {
-            text-align: center;
-            padding: var(--space-xl) 0;
-            margin-top: var(--space-xl);
-            border-top: 1px solid rgba(108, 122, 158, 0.2);
-            color: var(--text-muted);
-            font-size: 0.9em;
+            text-align: center; padding: var(--space-xl) 0; margin-top: var(--space-xl);
+            border-top: 1px solid rgba(108,122,158,0.2); color: var(--text-muted); font-size: 0.9em;
         }
-        
-        .footer p {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* ===== АДАПТИВНОСТЬ ===== */
+        .footer p { margin-bottom: 0.5rem; }
         @media (max-width: 768px) {
-            .container {
-                padding: 0 var(--space-sm);
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-                margin: var(--space-lg) 0;
-            }
-            
-            h2 {
-                font-size: 1.6rem;
-                margin-top: var(--space-lg);
-            }
-            
-            .card {
-                padding: var(--space-md);
-            }
-            
-            table {
-                font-size: 0.85em;
-            }
-            
-            th, td {
-                padding: var(--space-sm);
-            }
+            .container { padding: 0 var(--space-sm); }
+            h1 { font-size: 2.2rem; margin: var(--space-lg) 0; }
+            h2 { font-size: 1.6rem; margin-top: var(--space-lg); }
+            .card { padding: var(--space-md); }
+            table { font-size: 0.85em; }
+            th, td { padding: var(--space-sm); }
         }
-        
-        /* ===== АНИМАЦИИ ===== */
-        @keyframes subtlePulse {
-            0% { opacity: 0.8; }
-            50% { opacity: 1; }
-            100% { opacity: 0.8; }
-        }
-        
-        .pulse {
-            animation: subtlePulse 3s infinite;
-        }
+        @keyframes subtlePulse { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
+        .pulse { animation: subtlePulse 3s infinite; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>КЛАССИФИКАЦИЯ ВИДЕОИГРОВЫХ ПРОИЗВЕДЕНИЙ (ПОЛНЫЙ КАНОН)</h1>
-            
             <div class="principle">
                 <h3>КЛЮЧЕВОЙ ПРИНЦИП СИСТЕМЫ КЛАССИФИКАЦИИ</h3>
                 <p>Тип видеоигрового произведения определяется <strong>игровым дизайном и ощущаемым игровым опытом</strong>, а не маркетингом, платформой или внутренней историей разработки.</p>
@@ -551,12 +180,10 @@
         </header>
 
         <main>
-            <!-- Часть 1 -->
+            <!-- ЧАСТЬ 1: ТИПЫ ВИДЕОИГРОВЫХ ПРОИЗВЕДЕНИЙ -->
             <div class="section-divider"></div>
-            
             <div class="card definition-card">
                 <h2>ЧАСТЬ 1: ТИПЫ ВИДЕОИГРОВЫХ ПРОИЗВЕДЕНИЙ</h2>
-                
                 <div class="note">
                     <h3>ОПРЕДЕЛЕНИЕ ВИДЕОИГРОВОГО ПРОИЗВЕДЕНИЯ</h3>
                     <p>Самостоятельный интерактивный продукт, обладающий собственным игровым дизайном и предназначенный для прохождения игроком.</p>
@@ -573,43 +200,51 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- ОРИГИНАЛ -->
                         <tr>
                             <td><span class="type-indicator indicator-original">ОРИГИНАЛ</span></td>
                             <td>
                                 <strong>Определение:</strong> Первая реализация игрового дизайна, созданная как самостоятельное произведение.<br><br>
-                                <strong>Признаки:</strong> первичная дизайнерская концепция; служит основой для портов, версий, ремастеров, переизданий и ремейков; <strong>может быть мультиплатформенной с одновременным релизом</strong>.
+                                <strong>Признаки:</strong> первичная дизайнерская концепция; служит основой для портов, версий, расширенных изданий, ремастеров, переизданий и ремейков; <strong>может быть мультиплатформенной с одновременным релизом</strong>.<br><br>
+                                <em>Подтипы (определяются моделью разработки):</em><br>
+                                — <span class="type-indicator indicator-identical">ИДЕНТИЧНЫЙ ОРИГИНАЛ</span>: платформы одной категории мощности, визуально идентичны.<br>
+                                — <span class="type-indicator indicator-adaptation">ОРИГИНАЛ-АДАПТАЦИЯ</span>: платформы разных категорий, единый дизайн, адаптированные ассеты.
                             </td>
-                            <td><code>Resident Evil (1996)</code><br><code>The Witcher 3: Wild Hunt (2015)</code><br><code>Cyberpunk 2077 (2020)</code></td>
-                            <td><strong>Контрпример «Нет оригинала»:</strong> <code>Harry Potter and the Philosopher's Stone</code> (2001). Разные студии создали разные дизайны для PC, PS1, GBC. <strong>Единого оригинала не существует</strong>, есть только <strong>Версии</strong>.</td>
+                            <td><code>Resident Evil (1996)</code><br><code>The Witcher 3 (2015)</code><br><code>Cyberpunk 2077 (2020)</code></td>
+                            <td><strong>Контрпример «Нет оригинала»:</strong> <code>Harry Potter and the Philosopher's Stone (2001)</code>. Разные студии создали разные дизайны. <strong>Единого оригинала нет</strong>, есть только <strong>Версии</strong>.</td>
                         </tr>
+                        <!-- ПОРТ -->
                         <tr>
                             <td><span class="type-indicator indicator-port">ПОРТ</span></td>
                             <td>
-                                <strong>Определение:</strong> Технический перенос оригинальной игры на другую платформу <strong>без изменения игрового дизайна</strong>.<br><br>
-                                <strong>Признаки:</strong> сохраняются структура, механики, сценарий и логика уровней; изменения носят технический характер (графика, управление, производительность); цель — воспроизведение оригинального игрового опыта.
+                                <strong>Определение:</strong> Технический перенос <strong>уже выпущенной</strong> игры на другую платформу <strong>без изменения игрового дизайна</strong>. Обычно выполняется другой студией или той же, но со значительным временным лагом (≥ 3 месяцев).<br><br>
+                                <strong>Признаки:</strong> сохраняются структура, механики, сценарий и логика уровней; изменения носят технический характер.
                             </td>
                             <td><code>Resident Evil 2 (PC, N64)</code><br><code>Half-Life (PS2)</code><br><code>GTA V (PC)</code></td>
                             <td>Игрок, знающий оригинал, пройдёт порт «по памяти». Относится к тому же игровому дизайну, что и оригинал.</td>
                         </tr>
+                        <!-- ВЕРСИЯ -->
                         <tr>
                             <td><span class="type-indicator indicator-version">ВЕРСИЯ</span></td>
                             <td>
-                                <strong>Определение:</strong> <strong>Альтернативная реализация</strong> с <strong>изменённым игровым дизайном</strong>. Часто адаптация под особенности/ограничения платформы.<br><br>
+                                <strong>Определение:</strong> <strong>Альтернативная реализация</strong> с <strong>изменённым игровым дизайном</strong>. Часто адаптация под особенности/ограничения платформы, выполненная <strong>другой студией</strong>.<br><br>
                                 <strong>Признаки:</strong> изменённая структура уровней и/или механики; сохранение базовой идеи и идентичности игры.<br><br>
-                                <strong><em>Ключевое уточнение:</em></strong> Различия должны быть <strong>радикальными</strong>, превращающими игру в <strong>совершенно другой, уникальный игровой опыт</strong>, который нельзя пройти, опираясь только на знание другой версии (пример: <code>Spider-Man 2</code> на PS2 и PC). Добавление новых головоломок в существующую структуру уровней — недостаточно.
+                                <strong><em>Ключевое уточнение:</em></strong> Различия должны быть <strong>радикальными</strong>, превращающими игру в <strong>совершенно другой, уникальный игровой опыт</strong>, который нельзя пройти, опираясь только на знание другой версии.
                             </td>
                             <td><code>Spider-Man 2 (2004)</code> — PS2 vs PC<br><code>Prince of Persia: The Two Thrones</code> — разные консольные версии<br><code>Harry Potter 1</code> — PS1 vs PC</td>
                             <td>Это <strong>другая игра под тем же названием</strong>. Игрок, знающий одну версию, <strong>не сможет</strong> пройти другую «по памяти». <strong>Всегда попадает в топ отдельно.</strong></td>
                         </tr>
+                        <!-- РЕМЕЙК -->
                         <tr>
                             <td><span class="type-indicator indicator-remake">РЕМЕЙК</span></td>
                             <td>
                                 <strong>Определение:</strong> Полное переосмысление оригинальной игры с <strong>созданием нового игрового дизайна</strong>.<br><br>
                                 <strong>Признаки:</strong> переработанные механики и структура; иной темп, управление или философия дизайна; сохранение сюжетного и концептуального ядра; <strong>ощущается как новое самостоятельное произведение</strong>.
                             </td>
-                            <td><code>Resident Evil 2 (2019)</code><br><code>Final Fantasy VII Remake</code><br><code>Dead Space (2023)</code></td>
+                            <td><code>Resident Evil 2 (2019)</code><br><code>Final Fantasy VII Remake</code><br><code>Panzer Dragoon: Remake (2020)</code></td>
                             <td><strong>Всегда попадает в топ отдельно.</strong> Ключевой признак — новый, отличный от оригинала дизайн.</td>
                         </tr>
+                        <!-- РЕМАСТЕР -->
                         <tr>
                             <td><span class="type-indicator indicator-remaster">РЕМАСТЕР</span></td>
                             <td>
@@ -619,6 +254,17 @@
                             <td><code>The Last of Us Remastered</code><br><code>Dark Souls Remastered</code><br><code>Skyrim Special Edition</code></td>
                             <td>Является частью того же дизайна, что и оригинал. <strong>Конкурирует с ним за одну позицию в топе.</strong></td>
                         </tr>
+                        <!-- РАСШИРЕННОЕ ИЗДАНИЕ (ТИП) -->
+                        <tr>
+                            <td><span class="type-indicator indicator-expanded">РАСШИРЕННОЕ ИЗДАНИЕ</span></td>
+                            <td>
+                                <strong>Определение:</strong> Издание существующего произведения, включающее дополнительный контент (новые уровни, предметы, костюмы, сценарии) или балансные правки, но <strong>не изменяющее базовый игровой дизайн</strong>. Может выходить на той же платформе (Director's Cut, GOTY, Enhanced Edition) или на другой (как часть переиздания).<br><br>
+                                <strong>Признаки:</strong> добавляет контент, меняет наполнение, но структура уровней, ключевые механики, логика прохождения идентичны оригиналу.
+                            </td>
+                            <td><code>Resident Evil: Director's Cut (PS1)</code><br><code>The Witcher 3: GOTY Edition</code><br><code>Deus Ex: Game of the Year Edition</code></td>
+                            <td><strong>Не является новым произведением</strong> в том смысле, что использует тот же базовый дизайн, но как отдельный релиз имеет собственный тип и анализируется отдельно. <strong>Конкурирует за одно место в топе с оригиналом, портами и ремастерами.</strong></td>
+                        </tr>
+                        <!-- ПОЛНОЕ ПЕРЕИЗДАНИЕ -->
                         <tr>
                             <td><span class="type-indicator indicator-remaster">ПОЛНОЕ ПЕРЕИЗДАНИЕ</span></td>
                             <td>
@@ -628,6 +274,7 @@
                             <td><code>Halo: Combat Evolved Anniversary</code><br><code>The Last of Us Part I</code></td>
                             <td><strong>Классифицируется и анализируется по правилам Ремастера (тот же дизайн).</strong> <strong>Всегда попадает в топ отдельно</strong> как технически отдельная и лучшая по качеству реализация дизайна.</td>
                         </tr>
+                        <!-- САМОСТОЯТЕЛЬНОЕ ДОПОЛНЕНИЕ -->
                         <tr>
                             <td><span class="type-indicator indicator-version">САМОСТОЯТЕЛЬНОЕ ДОПОЛНЕНИЕ</span></td>
                             <td>
@@ -637,30 +284,32 @@
                             <td><code>Half-Life: Opposing Force</code><br><code>The Witcher 3: Blood and Wine</code><br><code>Unreal: Return to Na Pali</code></td>
                             <td><strong>Всегда попадает в топ отдельно</strong> как самостоятельное произведение.</td>
                         </tr>
+                        <!-- РЕ-РЕЛИЗ -->
+                        <tr>
+                            <td><span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span></td>
+                            <td>
+                                <strong>Определение:</strong> Официальный цифровой перевыпуск существующей версии игры <strong>в рамках той же платформенной экосистемы</strong>, где изменения касаются исключительно обеспечения совместимости с новым аппаратным/программным обеспечением, без изменений в коде, движке или ассетах игры.<br><br>
+                                <strong>Признаки:</strong> распространяется как самостоятельный продукт в цифровом магазине; использует эмуляцию, обёртки или патчи совместимости; <strong>не является портированием</strong> на новую платформу.
+                            </td>
+                            <td><code>Resident Evil (1997, PC)</code> на GOG (2024)<br><code>Resident Evil: Director's Cut</code> на PSN (2009)</td>
+                            <td>Конкурирует за одно место в топе с оригиналом, портами, ремастерами и расширенными изданиями.</td>
+                        </tr>
                     </tbody>
                 </table>
+                <p style="margin-top: var(--space-md);"><strong>Важно:</strong> <span class="type-indicator indicator-hybrid">ГИБРИДНОЕ ИЗДАНИЕ</span> (Порт+Расширенное) не является базовым типом, а представляет собой <strong>особый случай классификации</strong>, когда в одном релизе сочетаются признаки нескольких типов. Его классификация регулируется Правилом 6 (Часть 2.1).</p>
             </div>
 
-            <!-- Часть 2 -->
+            <!-- ЧАСТЬ 2: АНАЛИТИЧЕСКИЕ ПРАВИЛА И ФОРМАТЫ -->
             <div class="section-divider"></div>
-            
             <div class="card rule-card">
                 <h2>ЧАСТЬ 2: АНАЛИТИЧЕСКИЕ ПРАВИЛА И ФОРМАТЫ</h2>
 
                 <div class="warning">
                     <h3>ФОРМАТЫ, НЕ ЯВЛЯЮЩИЕСЯ ТИПАМИ ПРОИЗВЕДЕНИЙ</h3>
                     <ul>
-                        <li><strong>DLC (Downloadable Content):</strong> Форма распространения контента. Тип определяется содержанием.</li>
-                        <li><strong>Расширенное издание (Expanded/Enhanced/GOTY/Director's Cut/Black Edition):</strong>
-                            <ul>
-                                <li>Издание существующего произведения, включающее дополнительный контент или улучшения.</li>
-                                <li><strong>Не образует новое произведение</strong> (если не изменён базовый игровой дизайн).</li>
-                                <li>Самостоятельные дополнения внутри него учитываются отдельно.</li>
-                                <li><strong>Анализируется как часть основного произведения (Оригинала, Порта, Ремастера)</strong> и участвует в сравнении при выборе лучшей реализации для топа.</li>
-                                <li>Рассматривается <strong>как та же игра</strong> (тот же дизайн). Примеры: <code>The Witcher 3: GOTY Edition</code>, <code>Cyberpunk 2077: Ultimate Edition</code>, <code>Deus Ex: Game of the Year Edition</code>.</li>
-                            </ul>
-                        </li>
+                        <li><strong>DLC (Downloadable Content):</strong> Форма распространения контента. Тип определяется содержанием (например, самостоятельное дополнение — это тип, а отдельные предметы, костюмы, миссии — контент).</li>
                     </ul>
+                    <p><em>Примечание: Расширенное издание — это <strong>тип</strong>, а не формат. Оно включено в таблицу Части 1.</em></p>
                 </div>
 
                 <div class="note">
@@ -676,23 +325,23 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>КОЛЛЕКЦИЯ (COLLECTION)</strong></td>
+                                <td><span class="format-indicator indicator-collection">КОЛЛЕКЦИЯ (COLLECTION)</span></td>
                                 <td>
                                     <strong>Определение:</strong> Единый продукт, где несколько игр объединены в <strong>общем системном хабе</strong> (меню, лаунчер) с возможностью единообразного запуска.<br><br>
                                     <strong>Признаки:</strong> Единая оболочка; часто включает дополнительный медиаконтент; игры могут быть слегка доработаны (патчи, совместимость).
                                 </td>
                                 <td><strong>Примеры:</strong> <code>Halo: The Master Chief Collection</code>, <code>Mass Effect Legendary Edition</code>, <code>Unreal Gold</code>.<br><br>
-                                    <strong>Анализ:</strong> Каждая игра внутри коллекции анализируется и классифицируется <strong>отдельно</strong> (например, в MCC каждая часть Halo — это свой Оригинал или Ремастер). Коллекция как целое используется для анализа серии и продакшена.
+                                    <strong>Анализ:</strong> Каждая игра внутри коллекции анализируется и классифицируется <strong>отдельно</strong>. Коллекция как целое используется для анализа серии и продакшена.
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong>СБОРНИК (BUNDLE / ANTHOLOGY)</strong></td>
+                                <td><span class="format-indicator indicator-collection">СБОРНИК (BUNDLE / ANTHOLOGY)</span></td>
                                 <td>
                                     <strong>Определение:</strong> Набор игр, поставляемых вместе, но <strong>не имеющих общего игрового хаба</strong>. Это несколько отдельных установок или ключей в одной покупке.<br><br>
                                     <strong>Признаки:</strong> Отсутствие единой оболочки; игры устанавливаются и запускаются независимо.
                                 </td>
                                 <td><strong>Примеры:</strong> <code>Valve Complete Pack</code>, <code>Humble Bundle</code>, розничные сборники вроде <code>«5 игр в одной коробке»</code>.<br><br>
-                                    <strong>Анализ:</strong> Каждая игра анализируется отдельно. Сборник не несёт аналитической ценности, кроме как факта маркетингового объединения.
+                                    <strong>Анализ:</strong> Каждая игра анализируется отдельно. Сборник не несёт аналитической ценности, кроме факта маркетингового объединения.
                                 </td>
                             </tr>
                         </tbody>
@@ -700,7 +349,7 @@
                     <p><strong>Методология:</strong> При встрече с коллекцией или сборником всегда «распаковывайте» его и работайте с каждой игрой внутри по общим правилам системы классификации.</p>
                 </div>
 
-                <h3>АНАЛИТИЧЕСКИЕ ПРАВИЛА</h3>
+                <h3>БАЗОВЫЕ АНАЛИТИЧЕСКИЕ ПРАВИЛА</h3>
 
                 <div class="important">
                     <h4>ПРАВИЛО 1: ПРИНЦИП ДИЗАЙНА И ОПЫТА</h4>
@@ -732,9 +381,8 @@
                 </div>
             </div>
 
-            <!-- НОВАЯ ЧАСТЬ 2.1: Сложные и гибридные случаи -->
+            <!-- ЧАСТЬ 2.1: СЛОЖНЫЕ И ГИБРИДНЫЕ СЛУЧАИ -->
             <div class="section-divider"></div>
-
             <div class="card rule-card">
                 <h2>ЧАСТЬ 2.1: СЛОЖНЫЕ И ГИБРИДНЫЕ СЛУЧАИ</h2>
                 <div class="note">
@@ -752,9 +400,9 @@
                 </div>
 
                 <div class="important">
-                    <h4>ПРАВИЛО 6: ДЛЯ ГИБРИДНЫХ ИЗДАНИЙ <span class="type-indicator indicator-hybrid">(ПРЕЦЕДЕНТ)</span></h4>
+                    <h4>ПРАВИЛО 6: ДЛЯ ГИБРИДНЫХ ИЗДАНИЙ <span class="type-indicator indicator-hybrid">(ПОРТ + РАСШИРЕННОЕ)</span></h4>
                     <ul>
-                        <li>Если релиз содержит <strong>два или более режима прохождения</strong>, где один является точным воспроизведением исходного дизайна, а другой представляет собой его <strong>модификацию с изменениями в наполнении, но не в глобальной структуре</strong>, такой релиз классифицируется как <strong>«ПОРТ + РАСШИРЕННОЕ ИЗДАНИЕ»</strong> (пример: <code>Resident Evil: Deadly Silence</code>).</li>
+                        <li>Если релиз содержит <strong>два или более режима прохождения</strong>, где один является точным воспроизведением исходного дизайна, а другой представляет собой его <strong>модификацию с изменениями в наполнении, но не в глобальной структуре</strong>, такой релиз классифицируется как <strong>«ПОРТ + РАСШИРЕННОЕ ИЗДАНИЕ»</strong> (пример: <code>Resident Evil: Deadly Silence</code>, <code>Panzer Dragoon PS2 (Sega Ages)</code>).</li>
                         <li><strong>Критерий:</strong> Изменения в модифицированном режиме должны выходить за рамки параметрических настроек (сложность, баланс) и добавлять <strong>новые типы взаимодействий</strong> (например, уникальные головоломки), при этом <strong>сохраняя каркас оригинальных уровней и логику прогресса</strong>.</li>
                         <li><strong>Влияние на топ:</strong> Такой гибридный релиз является частью исходного игрового дизайна и конкурирует за одну позицию в топе по правилу лучшей реализации. Как наиболее полный опыт, он признаётся <strong>лучшей реализацией</strong> этого дизайна.</li>
                     </ul>
@@ -778,9 +426,8 @@
                 </div>
             </div>
 
-            <!-- НОВАЯ ЧАСТЬ 2.2: Классификация ре-релизов и форматов доступа -->
+            <!-- ЧАСТЬ 2.2: КЛАССИФИКАЦИЯ РЕ-РЕЛИЗОВ И ФОРМАТОВ ДОСТУПА -->
             <div class="section-divider"></div>
-
             <div class="card rule-card">
                 <h2>ЧАСТЬ 2.2: КЛАССИФИКАЦИЯ РЕ-РЕЛИЗОВ И ФОРМАТОВ ДОСТУПА</h2>
                 <div class="note">
@@ -789,17 +436,8 @@
                 </div>
 
                 <div class="important">
-                    <h4>ПРАВИЛО 9: РЕ-РЕЛИЗ (DIGITAL RE-RELEASE / COMPATIBILITY RELEASE)</h4>
-                    <p><strong>Определение:</strong> Официальный цифровой перевыпуск существующей версии игры <strong>в рамках той же платформенной экосистемы</strong>, где изменения касаются исключительно обеспечения совместимости с новым аппаратным/программным обеспечением, без изменений в коде, движке или ассетах игры.</p>
-                    <p><strong>Ключевые признаки:</strong></p>
-                    <ul>
-                        <li>Игра <strong>распространяется как самостоятельный продукт</strong> в цифровом магазине.</li>
-                        <li>Цель релиза — <strong>сохранение, легализация доступа и обеспечение совместимости</strong>, а не создание новой версии или перенос на новую платформу.</li>
-                        <li>Технически может использовать эмуляцию, обёртки (wrappers) или патчи совместимости.</li>
-                        <li><strong>Не является Портированием</strong> на новую платформу.</li>
-                    </ul>
-                    <p><strong>Тип в каноне:</strong> <span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span></p>
-                    <p><strong>Пример:</strong> Релиз <code>Resident Evil (1997, PC)</code> на GOG.com в 2024 году — это официальный ре-релиз оригинального PC-порта с обеспечением совместимости с Windows 10/11.</p>
+                    <h4>ПРАВИЛО 9: РЕ-РЕЛИЗ (ОПРЕДЕЛЕНИЕ УЖЕ В ЧАСТИ 1)</h4>
+                    <p>Тип <span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span> включён в общую таблицу типов. В данной части рассматриваются нюансы его применения.</p>
                 </div>
 
                 <div class="important">
@@ -836,138 +474,111 @@
                 </div>
             </div>
 
-            <!-- НОВАЯ ЧАСТЬ 2.3: КЛАССИФИКАЦИЯ МУЛЬТИПЛАТФОРМЕННЫХ РЕЛИЗОВ: ДЕТАЛИЗАЦИЯ МОДЕЛЕЙ РАЗРАБОТКИ -->
+            <!-- ЧАСТЬ 2.3: МУЛЬТИПЛАТФОРМЕННЫЕ РЕЛИЗЫ — МОДЕЛИ РАЗРАБОТКИ -->
             <div class="section-divider"></div>
-
             <div class="card rule-card">
                 <h2>ЧАСТЬ 2.3: КЛАССИФИКАЦИЯ МУЛЬТИПЛАТФОРМЕННЫХ РЕЛИЗОВ — ДЕТАЛИЗАЦИЯ МОДЕЛЕЙ РАЗРАБОТКИ</h2>
                 <div class="note">
-                    <p>Данная часть детализирует применение Правил 2, 3 и 4 для случаев мультиплатформенных релизов, учитывая различные модели разработки, выявленные в ходе анализа сложных кейсов (серия Harry Potter и др.).</p>
+                    <p>Данная часть детализирует применение Правил 2, 3 и 4 для случаев мультиплатформенных релизов, учитывая различные модели разработки, выявленные в ходе анализа сложных кейсов (серия Harry Potter, Republic Heroes и др.).</p>
                 </div>
 
                 <div class="important">
-                    <h4>ПРАВИЛО 12: МОДЕЛЬ «ЕДИНАЯ КРОССПЛАТФОРМЕННАЯ ВЕРСИЯ»</h4>
-                    <p><strong>Определение:</strong> Одна студия разрабатывает игру одновременно для нескольких платформ, используя единый дизайн-документ и, как правило, общую кодовую базу, адаптируя лишь технические аспекты (управление, графический API, работа с носителями). Релиз происходит одновременно на всех целевых платформах.</p>
-                    <p><strong>Признаки:</strong></p>
-                    <ul>
-                        <li>Единый разработчик для всех платформ.</li>
-                        <li>Одновременный или близкий по датам релиз (разница не более нескольких дней/недель).</li>
-                        <li>Отсутствие документально подтверждённых различий в игровом дизайне (механики, структура уровней, логика прохождения).</li>
-                        <li>Адаптация управления под каждую платформу не меняет базовый дизайн и классифицируется как изменение наполнения (Правило 7).</li>
-                    </ul>
-                    <p><strong>Классификация:</strong> <span class="type-indicator indicator-original">ОРИГИНАЛ</span> (если это первая реализация дизайна) или <span class="type-indicator indicator-version">ВЕРСИЯ</span> (если это альтернативная реализация по отношению к другому Оригиналу). В аналитической карточке допустима компактная запись: <code>Платформа1/Платформа2/ПлатформаN - Тип - Студия - Дата - Название</code>.</p>
-                    <p><strong>Примеры-эталоны:</strong></p>
-                    <ul>
-                        <li><code>Cyberpunk 2077 (2020)</code> — единый Оригинал для PC, PS5, Xbox Series.</li>
-                        <li><code>Harry Potter and the Philosopher's Stone (2003)</code> — единая Версия (Warthog) для PS2/Xbox/NGC.</li>
-                        <li><code>Harry Potter: Quidditch World Cup (2003)</code> — единый Оригинал (EA UK) для PS2/Xbox/NGC/PC.</li>
-                    </ul>
+                    <h4>ПРАВИЛО 16: КАТЕГОРИИ МОЩНОСТИ ПЛАТФОРМ</h4>
+                    <p>Для объективного разграничения Идентичного оригинала и Оригинала-адаптации все платформы разделяются на категории по производительности. Эти категории фиксированы и не пересматриваются.</p>
+                    <table style="width:100%; margin-top:var(--space-sm);">
+                        <thead><tr><th>Категория</th><th>Платформы</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>High-end</strong></td><td>PC (high), PS5, Xbox Series X/S, PS4 Pro, Xbox One X</td></tr>
+                            <tr><td><strong>Mid-end</strong></td><td>PS4, Xbox One, Nintendo Switch (док), Steam Deck</td></tr>
+                            <tr><td><strong>Low-end</strong></td><td>PS3, Xbox 360, Wii U</td></tr>
+                            <tr><td><strong>Legacy / Handheld</strong></td><td>PS2, Xbox, GameCube, Wii, PSP, PS Vita, Nintendo 3DS, Nintendo DS, GBA, Android/iOS (устар.)</td></tr>
+                        </tbody>
+                    </table>
+                    <p><em>Примечание: список не исчерпывающий, при анализе конкретной игры категория определяется экспертным сообществом. Главный принцип — платформы с близкой производительностью относятся к одной категории.</em></p>
                 </div>
 
                 <div class="important">
-                    <h4>ПРАВИЛО 13: МОДЕЛЬ «ВЕДУЩАЯ ПЛАТФОРМА + ПОРТЫ»</h4>
-                    <p><strong>Определение:</strong> Игра изначально разрабатывается для одной целевой платформы («ведущей»), а затем технически переносится на другие платформы, часто другой студией или спустя время, без изменения игрового дизайна.</p>
-                    <p><strong>Признаки:</strong></p>
-                    <ul>
-                        <li>Разработчик ведущей версии может отличаться от разработчика портов.</li>
-                        <li>Существенный временной лаг между релизами на разных платформах.</li>
-                        <li>Игровой опыт идентичен, игрок, знакомый с ведущей версией, проходит порт «по памяти».</li>
-                        <li>Отсутствие документально подтверждённых изменений в дизайне (допустимы лишь технические адаптации).</li>
-                    </ul>
-                    <p><strong>Классификация:</strong> Ведущая платформа — <span class="type-indicator indicator-original">ОРИГИНАЛ</span>/<span class="type-indicator indicator-version">ВЕРСИЯ</span>; остальные платформы — <span class="type-indicator indicator-port">ПОРТ</span>.</p>
-                    <p><strong>Примеры-эталоны:</strong></p>
-                    <ul>
-                        <li><code>Grand Theft Auto V (2013)</code> — Оригинал на PS3/Xbox 360; PC (2015), PS4/Xbox One (2014) — Порты.</li>
-                        <li><code>Harry Potter and the Philosopher's Stone (2003)</code> — если бы мы не имели подтверждений о единой разработке, по умолчанию (Правило 3) PS2 — Оригинал/Версия, Xbox/GC — Порты. Но при наличии документального подтверждения единой разработки применяется Правило 12.</li>
-                    </ul>
+                    <h4>ПРАВИЛО 17: SIM-SHIP (ОДНОВРЕМЕННАЯ РАЗРАБОТКА) VS POST-LAUNCH (ПОСТ-РЕЛИЗ)</h4>
+                    <p><strong>Sim-ship:</strong> работа над всеми версиями начата <strong>до</strong> релиза ведущей версии; цель — одновременный выпуск на всех платформах. Выполняется той же студией или студией, вовлечённой с самого начала.</p>
+                    <p><strong>Post-launch:</strong> работа начата <strong>после</strong> релиза ведущей версии; временной лаг обычно ≥ 3 месяцев. Часто выполняется другой студией.</p>
+                    <p>Этот критерий — <strong>основной</strong> для различения Оригинала (включая адаптации) и Порта.</p>
                 </div>
 
                 <div class="important">
-                    <h4>ПРАВИЛО 14: МОДЕЛЬ «РАЗНЫЕ ВЕРСИИ ДЛЯ РАЗНЫХ ПЛАТФОРМ»</h4>
-                    <p><strong>Определение:</strong> Разные студии разрабатывают игры с одинаковым названием и общей идеей, но с существенно разным игровым дизайном, адаптированным под особенности каждой платформы. Релизы могут быть как одновременными, так и разновременными.</p>
-                    <p><strong>Признаки:</strong></p>
-                    <ul>
-                        <li>Разные студии-разработчики.</li>
-                        <li>Документированные различия в игровом дизайне (структура уровней, ключевые механики, поведение AI, эксклюзивный контент, меняющий восприятие игры).</li>
-                        <li>Игрок, знающий одну версию, не может пройти другую «по памяти» (требуется переобучение).</li>
-                        <li>Если одна из версий может быть идентифицирована как первичная реализация дизайна, она классифицируется как Оригинал, остальные — как Версии (см. уточнение к Правилу 4).</li>
-                        <li>Если ни одна версия не является первичной (все созданы одновременно и независимо), применяется Правило 4 «Нет оригинала» — все классифицируются как первичные Версии.</li>
-                    </ul>
-                    <p><strong>Классификация:</strong> <span class="type-indicator indicator-original">ОРИГИНАЛ</span> (если выделяется первичная реализация) + <span class="type-indicator indicator-version">ВЕРСИЯ</span> / <span class="type-indicator indicator-version">ВЕРСИИ</span>.</p>
-                    <p><strong>Примеры-эталоны:</strong></p>
-                    <ul>
-                        <li><code>Harry Potter and the Chamber of Secrets (2002)</code>: 
-                            <ul>
-                                <li>PS2 (EA UK) — Оригинал (ведущая консольная версия с уникальным дизайном).</li>
-                                <li>Xbox/GC (Eurocom) — отдельная Версия Eurocom (разработка параллельная, дизайн отличается от PS2: ограниченные зоны посадки, отсутствие отражения заклинаний, GC-эксклюзив).</li>
-                                <li>PC (KnowWonder), PS1 (Argonaut), GBC (Griptonite), GBA (Eurocom) — первичные Версии (Правило 4, так как все созданы разными студиями одновременно).</li>
-                            </ul>
-                        </li>
-                        <li><code>Spider-Man 2 (2004)</code>: PS2 vs PC — разные Версии (разные студии, кардинально разный дизайн).</li>
-                    </ul>
+                    <h4>ПРАВИЛО 18: ТРИ МОДЕЛИ МУЛЬТИПЛАТФОРМЕННЫХ РЕЛИЗОВ (С УЧЁТОМ ПОДТИПОВ ОРИГИНАЛА)</h4>
+                    <p><strong>Модель A: Единая кроссплатформенная разработка (Sim-ship, одна студия)</strong><br>
+                    → Если все платформы в <strong>одной категории мощности</strong>: <span class="type-indicator indicator-identical">ИДЕНТИЧНЫЙ ОРИГИНАЛ</span>.<br>
+                    → Если платформы в <strong>разных категориях мощности</strong>: <span class="type-indicator indicator-adaptation">ОРИГИНАЛ-АДАПТАЦИЯ</span>.<br>
+                    <em>Примеры: Republic Heroes (PS3/X360/PC — идентичный; PS2/PSP/Wii — адаптация), Harry Potter 2003 (PS2/Xbox/GC — адаптация, пограничный случай).</em></p>
+                    
+                    <p><strong>Модель B: Ведущая платформа + пост-релизные порты (Post-launch)</strong><br>
+                    → Ведущая версия — <span class="type-indicator indicator-original">ОРИГИНАЛ</span> (может быть идентичным или адаптацией).<br>
+                    → Остальные, вышедшие позже, — <span class="type-indicator indicator-port">ПОРТ</span>.<br>
+                    <em>Примеры: GTA V (PS3/X360 — оригинал; PC/PS4 — порты).</em></p>
+                    
+                    <p><strong>Модель C: Разные версии</strong><br>
+                    → Разные студии, разный дизайн, невозможность пройти «по памяти» → <span class="type-indicator indicator-version">ВЕРСИЯ</span> (или несколько Версий).<br>
+                    <em>Примеры: Harry Potter 1 (2001), Republic Heroes DS.</em></p>
                 </div>
 
                 <div class="important">
-                    <h4>ПРАВИЛО 15: КРИТЕРИИ РАЗГРАНИЧЕНИЯ МОДЕЛЕЙ</h4>
-                    <p>При анализе мультиплатформенного релиза необходимо последовательно применить следующие вопросы:</p>
-                    <ol>
-                        <li><strong>Разработчик(и):</strong> Одна студия на всех платформах или разные?</li>
-                        <li><strong>Даты релиза:</strong> Одновременные или с существенным лагом?</li>
-                        <li><strong>Документированные различия в дизайне:</strong> Есть ли независимые источники, подтверждающие изменение механик, структуры уровней, AI и т.д.?</li>
-                        <li><strong>Тест «по памяти»:</strong> Сможет ли опытный игрок, прошедший версию А, пройти версию Б, используя те же стратегии и знания?</li>
-                    </ol>
-                    <p>На основе ответов выбирается одна из трёх моделей (Правила 12–14). В спорных случаях приоритет отдаётся документальным подтверждениям и ощущаемому игровому опыту (Правило 1).</p>
+                    <h4>ПРАВИЛО 19: ТЕСТ «ПО ПАМЯТИ» КАК КОНТРОЛЬНЫЙ КРИТЕРИЙ</h4>
+                    <p>Если опытный игрок, досконально знающий одну версию, способен пройти другую версию, используя ту же мысленную карту уровней и последовательность действий, — это <strong>один и тот же дизайн</strong>. Если требуется переучивание, иное прохождение уровней, другие стратегии — это <strong>разные Версии</strong>.</p>
                 </div>
             </div>
 
-            <!-- Часть 3 -->
+            <!-- ЧАСТЬ 3: ФОРМИРОВАНИЕ ИТОГОВЫХ ТОПОВ -->
             <div class="section-divider"></div>
-
             <div class="card top-card">
                 <h2>ЧАСТЬ 3: ФОРМИРОВАНИЕ ИТОГОВЫХ ТОПОВ</h2>
 
                 <div class="note">
                     <p><strong>ОБЩИЕ ПРИНЦИПЫ ДЛЯ ТОПОВ:</strong><br>
-                    <strong>В топах учитываются:</strong> оригинальные игры; версии; ремастеры; полные переиздания; ремейки; самостоятельные дополнения; <strong>ре-релизы</strong>.<br>
-                    <strong>В топах не учитываются:</strong> DLC; режимы; коллекции и сборники как отдельные позиции; <strong>обратная совместимость и встроенные игры</strong>.</p>
+                    <strong>В топах учитываются:</strong> все типы из Части 1 (Оригинал, Порт, Версия, Ремейк, Ремастер, Расширенное издание, Полное переиздание, Самостоятельное дополнение, Ре-релиз), а также <span class="type-indicator indicator-hybrid">ГИБРИДНОЕ ИЗДАНИЕ</span> как особый случай.<br>
+                    <strong>В топах не учитываются:</strong> DLC; отдельные режимы; коллекции и сборники как отдельные позиции; обратная совместимость и встроенные игры.</p>
                 </div>
 
                 <h3>ПРАВИЛО 3.1: ТИПЫ, ВСЕГДА ПОПАДАЮЩИЕ В ТОП КАК ОТДЕЛЬНЫЕ ПОЗИЦИИ</h3>
                 <ul>
-                    <li><strong>Версия игры</strong> (как альтернативный дизайн).</li>
-                    <li><strong>Ремейк</strong> (как новое произведение).</li>
-                    <li><strong>Полное переиздание (Rebuilt)</strong> (анализируемое как ремастер, но технически отдельное).</li>
-                    <li><strong>Самостоятельное дополнение</strong> (как полноценная игра).</li>
+                    <li><span class="type-indicator indicator-version">ВЕРСИЯ</span> (альтернативный дизайн)</li>
+                    <li><span class="type-indicator indicator-remake">РЕМЕЙК</span> (новый дизайн)</li>
+                    <li><span class="type-indicator indicator-remaster">ПОЛНОЕ ПЕРЕИЗДАНИЕ</span> (технически отдельное, конкурирует за место)</li>
+                    <li><span class="type-indicator indicator-version">САМОСТОЯТЕЛЬНОЕ ДОПОЛНЕНИЕ</span></li>
                 </ul>
 
                 <h3>ПРАВИЛО 3.2: ТИПЫ, КОНКУРИРУЮЩИЕ ЗА ОДНУ ПОЗИЦИЮ В ТОПЕ (ПРАВИЛО «ЛУЧШЕЙ РЕАЛИЗАЦИИ»)</h3>
                 <ul>
-                    <li><strong>Оригинальная игра</strong>, её <strong>Порты</strong>, её <strong>Ремастеры</strong>, её <strong>Расширенные издания (без изменений дизайна)</strong> и её <strong>Ре-релизы</strong> представляют <strong>один и тот же игровой дизайн</strong>.</li>
-                    <li>В итоговый топ попадает <strong>ТОЛЬКО ОДНА, НАИЛУЧШАЯ РЕАЛИЗАЦИЯ</strong> этого дизайна.</li>
-                    <li><strong>Критерии выбора «лучшей реализации»:</strong> Совокупное техническое качество, доступность (актуальность платформы), полнота контента (включая DLC из Расширенных изданий) и общее соответствие современным стандартам качества.</li>
-                    <li><strong>Пример:</strong> Для <code>The Witcher 3: Wild Hunt</code> в топ попадает <code>The Witcher 3: Wild Hunt — Game of the Year Edition</code> (Расширенное издание), представляющая лучшую и самую полную версию оригинального дизайна. Оригинал 2015 года, порты и базовые издания не учитываются.</li>
+                    <li><span class="type-indicator indicator-original">ОРИГИНАЛ</span> (оба подтипа)</li>
+                    <li><span class="type-indicator indicator-port">ПОРТ</span></li>
+                    <li><span class="type-indicator indicator-remaster">РЕМАСТЕР</span></li>
+                    <li><span class="type-indicator indicator-expanded">РАСШИРЕННОЕ ИЗДАНИЕ</span></li>
+                    <li><span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span></li>
+                    <li><span class="type-indicator indicator-hybrid">ГИБРИДНОЕ ИЗДАНИЕ</span></li>
                 </ul>
+                <p>Все перечисленные типы представляют <strong>один и тот же игровой дизайн</strong> (за исключением случаев, когда Гибридное издание содержит режим с изменениями структуры — тогда оно может быть классифицировано как Версия/Ремейк, см. Правило 6).</p>
+                <p><strong>В итоговый топ попадает ТОЛЬКО ОДНА, НАИЛУЧШАЯ РЕАЛИЗАЦИЯ</strong> этого дизайна.</p>
+                <p><strong>Критерии выбора «лучшей реализации»:</strong> Совокупное техническое качество, доступность (актуальность платформы), полнота контента (включая DLC из Расширенных изданий) и общее соответствие современным стандартам качества.</p>
+                <p><strong>Пример:</strong> Для <code>The Witcher 3: Wild Hunt</code> в топ попадает <code>The Witcher 3: Wild Hunt — Game of the Year Edition</code> (Расширенное издание), представляющая лучшую и самую полную версию оригинального дизайна. Оригинал 2015 года, порты и базовые издания не учитываются.</p>
 
                 <div class="important">
                     <h4>ИТОГОВЫЙ АЛГОРИТМ ДЛЯ ТОПА:</h4>
                     <ol>
-                        <li>Определите все релизы, относящиеся к одному игровому дизайну (Оригинал + Порты + Ремастеры + Расширенные издания + <strong>Ре-релизы</strong>).</li>
+                        <li>Определите все релизы, относящиеся к одному игровому дизайну (Оригинал + Порты + Ремастеры + Расширенные издания + Ре-релизы + Гибридные издания).</li>
                         <li>Выберите среди них <strong>одну лучшую реализацию</strong> по указанным критериям. Это и будет единственный представитель данного дизайна в топе.</li>
                         <li><strong>Версии, Ремейки, Полные переиздания и Самостоятельные дополнения</strong> добавляйте в топ <strong>автоматически</strong> как отдельные позиции, независимо от других релизов.</li>
                     </ol>
                 </div>
             </div>
 
-            <!-- Часть 4 -->
+            <!-- ЧАСТЬ 4: ФОРМАТ АНАЛИТИЧЕСКОЙ КАРТОЧКИ ИГРЫ -->
             <div class="section-divider"></div>
-
             <div class="card">
                 <h2>ЧАСТЬ 4: ФОРМАТ АНАЛИТИЧЕСКОЙ КАРТОЧКИ ИГРЫ</h2>
                 <p>При анализе конкретной игры предоставляется карточка в следующем формате:</p>
 
                 <div class="code-block">
 <strong>Название игры (Год первого релиза)</strong>
-*   <strong>Главный вывод:</strong> (Кратко: есть/нет единого оригинала, преобладающий тип).
+*   <strong>Главный вывод:</strong> (Кратко: есть/нет единого оригинала, преобладающий тип, модель разработки).
 *   <strong>Хронологическая таблица:</strong>
     | Год | Точная дата | Платформа / Издание | Студия-разработчик | <strong>Тип</strong> | Краткое обоснование (правило) |
     |---|---|---|---|---|---|
@@ -978,9 +589,8 @@
                 <p><strong>РЕКОМЕНДУЕМЫЙ ФОРМАТ ЗАПИСИ ДЛЯ ЕДИНОЙ КРОССПЛАТФОРМЕННОЙ ВЕРСИИ:</strong> <code>Платформа1/Платформа2/ПлатформаN - Тип - Студия - Дата - Название</code>. Данная запись однозначно идентифицирует единую версию и экономит место.</p>
             </div>
 
-            <!-- Часть 5 -->
+            <!-- ЧАСТЬ 5: ПРИМЕРЫ-ЭТАЛОНЫ ДЛЯ АНАЛИЗА -->
             <div class="section-divider"></div>
-
             <div class="card">
                 <h2>ЧАСТЬ 5: ПРИМЕРЫ-ЭТАЛОНЫ ДЛЯ АНАЛИЗА</h2>
                 <table>
@@ -993,69 +603,64 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Единый оригинал на N платформах</strong></td>
-                            <td><code>Star Wars Jedi: Fallen Order</code><br><code>Cyberpunk 2077</code></td>
-                            <td>Один дизайн, одна студия, одновременный релиз на нескольких платформах. Классифицируется как единый Оригинал.</td>
+                            <td><strong>Идентичный оригинал</strong></td>
+                            <td><code>Cyberpunk 2077</code><br><code>Star Wars Jedi: Fallen Order</code></td>
+                            <td>Одна студия, одновременный релиз, платформы одной категории.</td>
                         </tr>
                         <tr>
-                            <td><strong>Отсутствие оригинала, только версии</strong></td>
-                            <td><code>Harry Potter and the Philosopher's Stone</code> (2001)</td>
-                            <td>Разные студии, разный дизайн для разных платформ. Единого оригинала не существует — только первичные Версии.</td>
+                            <td><strong>Оригинал-адаптация</strong></td>
+                            <td><code>Star Wars: Republic Heroes</code> (PS2/PSP/Wii)<br><code>Harry Potter 2003</code> (PS2/Xbox/GC)</td>
+                            <td>Sim-ship, одна студия, разные категории мощности. Те же уровни, адаптированные ассеты.</td>
                         </tr>
                         <tr>
-                            <td><strong>Оригинал + Порты (эвристика PS2)</strong></td>
-                            <td><code>Harry Potter: Quidditch World Cup</code> (2003)</td>
-                            <td>PS2 — оригинал/версия, PC/Xbox/GC — порты (тот же дизайн), GBA — версия (другой дизайн).</td>
+                            <td><strong>Порт (post-launch)</strong></td>
+                            <td><code>GTA V</code> PC (2015)<br><code>The Witcher 3</code> Switch (2019)</td>
+                            <td>Перенос после релиза, часто другой студией. Тот же дизайн. Конкурирует с оригиналом.</td>
                         </tr>
                         <tr>
-                            <td><strong>Единая кросс-платформенная версия (Правило 12)</strong></td>
-                            <td><code>Harry Potter and the Philosopher's Stone</code> (2003) — PS2/Xbox/GC</td>
-                            <td>Одна студия (Warthog), параллельная разработка, идентичный дизайн, одновременный релиз. Классифицируется как единая Версия (запись: PS2/Xbox/NGC - Версия игры - Warthog - 2003).</td>
+                            <td><strong>Версия (разные студии, разный дизайн)</strong></td>
+                            <td><code>Harry Potter 1</code> (2001): PS1 vs PC<br><code>Republic Heroes</code> DS</td>
+                            <td>Разные разработчики, невозможно пройти «по памяти». Всегда отдельно в топе.</td>
                         </tr>
                         <tr>
-                            <td><strong>Разные версии для разных платформ (Правило 14)</strong></td>
-                            <td><code>Harry Potter and the Chamber of Secrets</code> (2002) — PS2 vs Xbox/GC</td>
-                            <td>PS2 (EA UK) и Xbox/GC (Eurocom) — разные студии, разные дизайны (задокументированные отличия в механиках полёта, отражении заклинаний, AI). Классифицируются как разные Версии.</td>
+                            <td><strong>Ремейк</strong></td>
+                            <td><code>Resident Evil 2 (2019)</code><br><code>Panzer Dragoon: Remake</code></td>
+                            <td>Новый дизайн, отдельная позиция в топе.</td>
                         </tr>
                         <tr>
-                            <td><strong>Версия игры (альтернативный дизайн)</strong></td>
-                            <td><code>Spider-Man 2</code> (2004) PC vs PS2</td>
-                            <td>Разный левел-дизайн и механики. Игрок, знающий одну версию, не сможет пройти другую «по памяти».</td>
+                            <td><strong>Ремастер</strong></td>
+                            <td><code>The Last of Us Remastered</code><br><code>Dark Souls Remastered</code></td>
+                            <td>Техническое улучшение, дизайн сохранён. Конкурирует за одно место.</td>
                         </tr>
                         <tr>
-                            <td><strong>Ремейк vs Ремастер/Переиздание</strong></td>
-                            <td><code>Resident Evil 2 (2019)</code> — ремейк.<br><code>The Last of Us Part I (2022)</code> — полное переиздание.</td>
-                            <td>Ремейк: новый дизайн (в топ отдельно). Переиздание: сохранённый дизайн (конкурирует с оригиналом).</td>
+                            <td><strong>Расширенное издание</strong></td>
+                            <td><code>Resident Evil: Director's Cut</code><br><code>The Witcher 3: GOTY Edition</code></td>
+                            <td>Дополнительный контент, тот же дизайн. Конкурирует как лучшая реализация.</td>
                         </tr>
                         <tr>
-                            <td><strong>Расширенное издание для топа</strong></td>
-                            <td><code>The Witcher 3: Wild Hunt — GOTY Edition</code></td>
-                            <td><strong>Кандидат в топ</strong> как лучшая реализация оригинального дизайна (включает все DLC, патчи).</td>
+                            <td><strong>Гибридное издание (Порт+Расширенное)</strong></td>
+                            <td><code>Resident Evil: Deadly Silence</code><br><code>Panzer Dragoon PS2 (Sega Ages)</code></td>
+                            <td>Содержит точный порт и модифицированный режим. Лучшая реализация дизайна.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ре-релиз</strong></td>
+                            <td><code>Resident Evil (1997, PC)</code> на GOG (2024)</td>
+                            <td>Цифровой перевыпуск, совместимость, не порт. Конкурирует за лучшую реализацию.</td>
                         </tr>
                         <tr>
                             <td><strong>Коллекция (не отдельная позиция)</strong></td>
-                            <td><code>Halo: The Master Chief Collection</code>, <code>Mass Effect Legendary Edition</code>, <code>Unreal Gold</code></td>
-                            <td>Анализируются <strong>игры внутри</strong> коллекции. Сама коллекция в топ не попадает как отдельное произведение.</td>
+                            <td><code>Halo: The Master Chief Collection</code></td>
+                            <td>Анализируются игры внутри коллекции. Сама коллекция в топ не попадает.</td>
                         </tr>
                         <tr>
-                            <td><strong>Гибридное издание (Порт + Расширенное)</strong></td>
-                            <td><code>Resident Evil: Deadly Silence</code> (NDS)</td>
-                            <td>Содержит точный <strong>Порт</strong> (Classic Mode) и <strong>модифицированный контент</strong> (Rebirth Mode) в одном издании. Классифицируется как «Порт + Расширенное издание». <strong>Кандидат в топ</strong> как лучшая реализация своего дизайна.</td>
+                            <td><strong>Обратная совместимость / встроенная игра</strong></td>
+                            <td><code>Panzer Dragoon</code> в <code>Panzer Dragoon Orta</code></td>
+                            <td>Не является релизом. Не учитывается (Правило 10).</td>
                         </tr>
                         <tr>
-                            <td><strong>Ре-релиз (Compatibility Release)</strong></td>
-                            <td><code>Resident Evil (1997, PC)</code> — релиз на GOG (2024)</td>
-                            <td>Официальный цифровой перевыпуск <strong>той же версии игры</strong> с обеспечением совместимости. <strong>Не является новым портом</strong>. Конкурирует за место лучшей реализации оригинального PC-дизайна.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Игнорирование обратной совместимости</strong></td>
-                            <td>Запуск диска <code>Halo 2 (Xbox, 2004)</code> на Xbox 360.</td>
-                            <td><strong>Не является релизом</strong>. Это техническая возможность консоли. В классификации игра относится к своему исходному релизу 2004 года на Xbox.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Двойная классификация (Ре-релиз + Сборник)</strong></td>
-                            <td><code>Resident Evil: Director's Cut</code> в <code>17th Anniversary Edition (2013)</code></td>
-                            <td><strong>Тип:</strong> <span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span> (PSN). <strong>Платформа:</strong> PlayStation 3 (в составе сборника). Учитывается как официальный релиз игры.</td>
+                            <td><strong>Три модели (полный кейс)</strong></td>
+                            <td><code>Star Wars: Republic Heroes (2009)</code></td>
+                            <td>PS3/X360/PC — идентичный оригинал; PS2/PSP/Wii — оригинал-адаптация; DS — версия.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1063,8 +668,8 @@
 
             <div class="footer">
                 <p>© Система классификации видеоигровых произведений | Геймдизайн-гайд (Полный канон)</p>
-                <p>Версия 4.0 | Профессиональный аналитический инструмент</p>
-                <p><em>Дополнен и уточнён на основе анализа сложных случаев (серия Harry Potter, Resident Evil и др.)</em></p>
+                <p>Версия 6.1 | Профессиональный аналитический инструмент</p>
+                <p><em>Расширенное издание восстановлено как тип. Устранены логические противоречия. Канон непротиворечив и полон.</em></p>
             </div>
         </main>
     </div>
