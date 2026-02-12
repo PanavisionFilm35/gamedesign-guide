@@ -402,7 +402,7 @@
             color: var(--text-secondary);
         }
         
-        /* ===== ИНДИКАТОРЫ ТИПОВ ===== */
+                /* ===== ИНДИКАТОРЫ ТИПОВ ===== */
         .type-indicator {
             display: inline-block;
             padding: 4px 12px;
@@ -457,17 +457,20 @@
             border-color: rgba(77, 217, 128, 0.3);
         }
         
+        /* Новый индикатор для гибридных случаев */
         .indicator-hybrid { 
             background: rgba(255, 171, 0, 0.1); 
             color: #FFAB00;
             border-color: rgba(255, 171, 0, 0.3);
         }
 
+        /* Новый индикатор для ре-релизов */
         .indicator-rerelease { 
             background: rgba(148, 110, 230, 0.1); 
             color: #946EE6;
             border-color: rgba(148, 110, 230, 0.3);
         }
+
         
         /* ===== РАЗДЕЛИТЕЛИ ===== */
         .section-divider {
@@ -876,13 +879,14 @@
                     <li><span class="type-indicator indicator-remaster">ПОЛНОЕ ПЕРЕИЗДАНИЕ</span> (технически отдельное, конкурирует за место с оригиналом)</li>
                     <li><span class="type-indicator indicator-version">САМОСТОЯТЕЛЬНОЕ ДОПОЛНЕНИЕ</span></li>
                 </ul>
-                <h3>ПРАВИЛО 3.2: ТИПЫ, КОНКУРИРУЮЩИЕ ЗА ОДНУ ПОЗИЦИЮ</h3>
+                <h3>ПРАВИЛО 3.2: ТИПЫ, КОНКУРИРУЮЩИЕ ЗА ОДНУ ПОЗИЦИЮ В ТОПЕ (ПРАВИЛО «ЛУЧШЕЙ РЕАЛИЗАЦИИ»)</h3>
                 <ul>
                     <li><span class="type-indicator indicator-original">ОРИГИНАЛ</span> (оба подтипа: идентичный и адаптация)</li>
                     <li><span class="type-indicator indicator-port">ПОРТ</span></li>
                     <li><span class="type-indicator indicator-remaster">РЕМАСТЕР</span></li>
+                    <li><span class="type-indicator indicator-expanded">РАСШИРЕННОЕ ИЗДАНИЕ</span> (без изменения дизайна, например GOTY, Directorʼs Cut на той же платформе)</li>
                     <li><span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span></li>
-                    <li><span class="type-indicator indicator-hybrid">ГИБРИДНОЕ ИЗДАНИЕ</span> (Порт+Расширенное)</li>
+                    <li><span class="type-indicator indicator-hybrid">ГИБРИДНОЕ ИЗДАНИЕ</span> (Порт + Расширенное / Порт + Ремастер)</li>
                 </ul>
                 <p><strong>В топ попадает ТОЛЬКО ОДНА, НАИЛУЧШАЯ РЕАЛИЗАЦИЯ</strong> каждого игрового дизайна. Выбор осуществляется по совокупности технического качества, полноты контента и доступности.</p>
             </div>
