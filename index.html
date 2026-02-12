@@ -421,18 +421,6 @@
             border-color: rgba(74, 158, 255, 0.3);
         }
         
-        .indicator-identical { 
-            background: rgba(106, 176, 255, 0.1); 
-            color: #6AB0FF;
-            border-color: rgba(106, 176, 255, 0.3);
-        }
-        
-        .indicator-adaptation { 
-            background: rgba(255, 170, 0, 0.1); 
-            color: #FFAA00;
-            border-color: rgba(255, 170, 0, 0.3);
-        }
-        
         .indicator-port { 
             background: rgba(108, 122, 158, 0.1); 
             color: var(--text-muted);
@@ -457,18 +445,14 @@
             border-color: rgba(77, 217, 128, 0.3);
         }
         
-        .indicator-expanded { 
-            background: rgba(255, 215, 0, 0.1); 
-            color: #FFD700;
-            border-color: rgba(255, 215, 0, 0.3);
-        }
-        
+        /* Новый индикатор для гибридных случаев */
         .indicator-hybrid { 
             background: rgba(255, 171, 0, 0.1); 
             color: #FFAB00;
             border-color: rgba(255, 171, 0, 0.3);
         }
 
+        /* Новый индикатор для ре-релизов */
         .indicator-rerelease { 
             background: rgba(148, 110, 230, 0.1); 
             color: #946EE6;
@@ -567,7 +551,7 @@
         </header>
 
         <main>
-            <!-- Часть 1: ТИПЫ ВИДЕОИГРОВЫХ ПРОИЗВЕДЕНИЙ (РАСШИРЕННАЯ) -->
+            <!-- Часть 1 -->
             <div class="section-divider"></div>
             
             <div class="card definition-card">
@@ -589,38 +573,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- ОРИГИНАЛ (базовый) -->
                         <tr>
                             <td><span class="type-indicator indicator-original">ОРИГИНАЛ</span></td>
                             <td>
                                 <strong>Определение:</strong> Первая реализация игрового дизайна, созданная как самостоятельное произведение.<br><br>
-                                <strong>Признаки:</strong> первичная дизайнерская концепция; служит основой для портов, версий, ремастеров, переизданий и ремейков; <strong>может быть мультиплатформенной с одновременным релизом</strong>.<br><br>
-                                <em>В зависимости от модели разработки и целевых платформ подразделяется на два подтипа:</em>
+                                <strong>Признаки:</strong> первичная дизайнерская концепция; служит основой для портов, версий, ремастеров, переизданий и ремейков; <strong>может быть мультиплатформенной с одновременным релизом</strong>.
                             </td>
-                            <td><code>Resident Evil (1996)</code><br><code>The Witcher 3 (2015)</code></td>
-                            <td><strong>Контрпример «Нет оригинала»:</strong> <code>Harry Potter 1 (2001)</code> — разные студии, разные дизайны. <strong>Единого оригинала нет</strong>, есть только <strong>Версии</strong>.</td>
+                            <td><code>Resident Evil (1996)</code><br><code>The Witcher 3: Wild Hunt (2015)</code><br><code>Cyberpunk 2077 (2020)</code></td>
+                            <td><strong>Контрпример «Нет оригинала»:</strong> <code>Harry Potter and the Philosopher's Stone</code> (2001). Разные студии создали разные дизайны для PC, PS1, GBC. <strong>Единого оригинала не существует</strong>, есть только <strong>Версии</strong>.</td>
                         </tr>
-                        <!-- ИДЕНТИЧНЫЙ ОРИГИНАЛ -->
-                        <tr>
-                            <td><span class="type-indicator indicator-identical">ИДЕНТИЧНЫЙ ОРИГИНАЛ</span></td>
-                            <td>
-                                <strong>Подтип Оригинала.</strong> Единая кодовая база, одновременный релиз на платформах <strong>одной категории мощности</strong>. Визуальные и технические параметры идентичны; различия ограничены графическим API и схемами управления.<br><br>
-                                <strong>Критерий:</strong> игрок не замечает разницы при смене платформы.
-                            </td>
-                            <td><code>Cyberpunk 2077</code> (PC/PS5/Xbox Series)<br><code>Star Wars Jedi: Fallen Order</code></td>
-                            <td>Если позже игру портируют на более слабую платформу с задержкой — это <span class="type-indicator indicator-port">ПОРТ</span>.</td>
-                        </tr>
-                        <!-- ОРИГИНАЛ-АДАПТАЦИЯ -->
-                        <tr>
-                            <td><span class="type-indicator indicator-adaptation">ОРИГИНАЛ-АДАПТАЦИЯ</span></td>
-                            <td>
-                                <strong>Подтип Оригинала.</strong> Единая кодовая база, одновременный релиз на платформах <strong>разных категорий мощности</strong>. Те же уровни, механики, логика, но визуальные/технические параметры адаптированы (текстуры, модели, дальность прорисовки, количество объектов, управление). Адаптация выполняется той же студией в рамках sim-ship разработки.<br><br>
-                                <strong>Критерий:</strong> игрок проходит игру «по памяти», но замечает упрощения.
-                            </td>
-                            <td><code>Star Wars: Republic Heroes</code> (PS2/PSP/Wii)<br><code>Harry Potter 2003</code> (PS2/Xbox/GC)<br><code>Resident Evil 4</code> (PS2)</td>
-                            <td>Не путать с <strong>Портом</strong>: порт делается <em>после</em> релиза, часто другой студией.</td>
-                        </tr>
-                        <!-- ПОРТ -->
                         <tr>
                             <td><span class="type-indicator indicator-port">ПОРТ</span></td>
                             <td>
@@ -630,18 +591,16 @@
                             <td><code>Resident Evil 2 (PC, N64)</code><br><code>Half-Life (PS2)</code><br><code>GTA V (PC)</code></td>
                             <td>Игрок, знающий оригинал, пройдёт порт «по памяти». Относится к тому же игровому дизайну, что и оригинал.</td>
                         </tr>
-                        <!-- ВЕРСИЯ -->
                         <tr>
                             <td><span class="type-indicator indicator-version">ВЕРСИЯ</span></td>
                             <td>
-                                <strong>Определение:</strong> <strong>Альтернативная реализация</strong> с <strong>изменённым игровым дизайном</strong>. Часто адаптация под особенности/ограничения платформы, выполненная <strong>другой студией</strong>.<br><br>
+                                <strong>Определение:</strong> <strong>Альтернативная реализация</strong> с <strong>изменённым игровым дизайном</strong>. Часто адаптация под особенности/ограничения платформы.<br><br>
                                 <strong>Признаки:</strong> изменённая структура уровней и/или механики; сохранение базовой идеи и идентичности игры.<br><br>
-                                <strong><em>Ключевое уточнение:</em></strong> Различия должны быть <strong>радикальными</strong>, превращающими игру в <strong>совершенно другой, уникальный игровой опыт</strong>, который нельзя пройти, опираясь только на знание другой версии. Добавление новых головоломок в существующую структуру уровней — недостаточно.
+                                <strong><em>Ключевое уточнение:</em></strong> Различия должны быть <strong>радикальными</strong>, превращающими игру в <strong>совершенно другой, уникальный игровой опыт</strong>, который нельзя пройти, опираясь только на знание другой версии (пример: <code>Spider-Man 2</code> на PS2 и PC). Добавление новых головоломок в существующую структуру уровней — недостаточно.
                             </td>
                             <td><code>Spider-Man 2 (2004)</code> — PS2 vs PC<br><code>Prince of Persia: The Two Thrones</code> — разные консольные версии<br><code>Harry Potter 1</code> — PS1 vs PC</td>
                             <td>Это <strong>другая игра под тем же названием</strong>. Игрок, знающий одну версию, <strong>не сможет</strong> пройти другую «по памяти». <strong>Всегда попадает в топ отдельно.</strong></td>
                         </tr>
-                        <!-- РЕМЕЙК -->
                         <tr>
                             <td><span class="type-indicator indicator-remake">РЕМЕЙК</span></td>
                             <td>
@@ -651,7 +610,6 @@
                             <td><code>Resident Evil 2 (2019)</code><br><code>Final Fantasy VII Remake</code><br><code>Dead Space (2023)</code></td>
                             <td><strong>Всегда попадает в топ отдельно.</strong> Ключевой признак — новый, отличный от оригинала дизайн.</td>
                         </tr>
-                        <!-- РЕМАСТЕР -->
                         <tr>
                             <td><span class="type-indicator indicator-remaster">РЕМАСТЕР</span></td>
                             <td>
@@ -661,17 +619,6 @@
                             <td><code>The Last of Us Remastered</code><br><code>Dark Souls Remastered</code><br><code>Skyrim Special Edition</code></td>
                             <td>Является частью того же дизайна, что и оригинал. <strong>Конкурирует с ним за одну позицию в топе.</strong></td>
                         </tr>
-                        <!-- РАСШИРЕННОЕ ИЗДАНИЕ (Expanded Edition) -->
-                        <tr>
-                            <td><span class="type-indicator indicator-expanded">РАСШИРЕННОЕ ИЗДАНИЕ</span></td>
-                            <td>
-                                <strong>Определение:</strong> Издание существующего произведения, включающее дополнительный контент (новые уровни, предметы, костюмы, сценарии) или балансные правки, но <strong>не изменяющее базовый игровой дизайн</strong>. Может выходить на той же платформе (Director's Cut, GOTY, Enhanced Edition) или на другой (как часть переиздания).<br><br>
-                                <strong>Признаки:</strong> добавляет контент, меняет наполнение, но структура уровней, ключевые механики, логика прохождения идентичны оригиналу.
-                            </td>
-                            <td><code>Resident Evil: Director's Cut (PS1)</code><br><code>The Witcher 3: GOTY Edition</code><br><code>Deus Ex: Game of the Year Edition</code></td>
-                            <td><strong>Не является новым произведением.</strong> Конкурирует за одно место в топе с оригиналом, портами, ремастерами и ре-релизами.</td>
-                        </tr>
-                        <!-- ПОЛНОЕ ПЕРЕИЗДАНИЕ -->
                         <tr>
                             <td><span class="type-indicator indicator-remaster">ПОЛНОЕ ПЕРЕИЗДАНИЕ</span></td>
                             <td>
@@ -679,9 +626,8 @@
                                 <strong>Признаки:</strong> может использовать новый движок; структура уровней, механики и темп идентичны оригиналу; изменения — технические и презентационные; <strong>не ощущается как новая игра</strong>.
                             </td>
                             <td><code>Halo: Combat Evolved Anniversary</code><br><code>The Last of Us Part I</code></td>
-                            <td><strong>Классифицируется и анализируется по правилам Ремастера (тот же дизайн).</strong> <strong>Всегда попадает в топ отдельно</strong> как технически отдельная и лучшая по качеству реализация дизайна, но конкурирует за одно место с оригиналом.</td>
+                            <td><strong>Классифицируется и анализируется по правилам Ремастера (тот же дизайн).</strong> <strong>Всегда попадает в топ отдельно</strong> как технически отдельная и лучшая по качеству реализация дизайна.</td>
                         </tr>
-                        <!-- САМОСТОЯТЕЛЬНОЕ ДОПОЛНЕНИЕ -->
                         <tr>
                             <td><span class="type-indicator indicator-version">САМОСТОЯТЕЛЬНОЕ ДОПОЛНЕНИЕ</span></td>
                             <td>
@@ -691,22 +637,11 @@
                             <td><code>Half-Life: Opposing Force</code><br><code>The Witcher 3: Blood and Wine</code><br><code>Unreal: Return to Na Pali</code></td>
                             <td><strong>Всегда попадает в топ отдельно</strong> как самостоятельное произведение.</td>
                         </tr>
-                        <!-- РЕ-РЕЛИЗ (цифровой) -->
-                        <tr>
-                            <td><span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span></td>
-                            <td>
-                                <strong>Определение:</strong> Официальный цифровой перевыпуск существующей версии игры <strong>в рамках той же платформенной экосистемы</strong>, где изменения касаются исключительно обеспечения совместимости с новым аппаратным/программным обеспечением, без изменений в коде, движке или ассетах игры.<br><br>
-                                <strong>Признаки:</strong> распространяется как самостоятельный продукт в цифровом магазине; использует эмуляцию, обёртки или патчи совместимости; <strong>не является портированием</strong> на новую платформу.
-                            </td>
-                            <td><code>Resident Evil (1997, PC)</code> на GOG (2024)<br><code>Resident Evil: Director's Cut</code> на PSN (2009)</td>
-                            <td>Конкурирует за одно место в топе с оригиналом, портами, ремастерами и расширенными изданиями.</td>
-                        </tr>
                     </tbody>
                 </table>
-                <p style="margin-top: var(--space-md);"><strong>Примечание:</strong> Типы <span class="type-indicator indicator-hybrid">ГИБРИДНОЕ ИЗДАНИЕ</span> (Порт+Расширенное) и <span class="type-indicator indicator-adaptation">ОРИГИНАЛ-АДАПТАЦИЯ</span> (подтип Оригинала) — это специальные маркеры для сложных случаев, детально описанные в Части 2. В основных релизах они фигурируют как уточнения к базовому типу.</p>
             </div>
 
-            <!-- Часть 2: АНАЛИТИЧЕСКИЕ ПРАВИЛА И ФОРМАТЫ (полная) -->
+            <!-- Часть 2 -->
             <div class="section-divider"></div>
             
             <div class="card rule-card">
@@ -863,7 +798,7 @@
                         <li>Технически может использовать эмуляцию, обёртки (wrappers) или патчи совместимости.</li>
                         <li><strong>Не является Портированием</strong> на новую платформу.</li>
                     </ul>
-                    <p><strong>Тип в каноне:</strong> <span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span> (определение включено в таблицу Части 1).</p>
+                    <p><strong>Тип в каноне:</strong> <span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span></p>
                     <p><strong>Пример:</strong> Релиз <code>Resident Evil (1997, PC)</code> на GOG.com в 2024 году — это официальный ре-релиз оригинального PC-порта с обеспечением совместимости с Windows 10/11.</p>
                 </div>
 
@@ -901,13 +836,13 @@
                 </div>
             </div>
 
-            <!-- НОВАЯ ЧАСТЬ 2.3: КЛАССИФИКАЦИЯ МУЛЬТИПЛАТФОРМЕННЫХ РЕЛИЗОВ: ДЕТАЛИЗАЦИЯ МОДЕЛЕЙ РАЗРАБОТКИ (РАСШИРЕННАЯ) -->
+            <!-- НОВАЯ ЧАСТЬ 2.3: КЛАССИФИКАЦИЯ МУЛЬТИПЛАТФОРМЕННЫХ РЕЛИЗОВ: ДЕТАЛИЗАЦИЯ МОДЕЛЕЙ РАЗРАБОТКИ -->
             <div class="section-divider"></div>
 
             <div class="card rule-card">
                 <h2>ЧАСТЬ 2.3: КЛАССИФИКАЦИЯ МУЛЬТИПЛАТФОРМЕННЫХ РЕЛИЗОВ — ДЕТАЛИЗАЦИЯ МОДЕЛЕЙ РАЗРАБОТКИ</h2>
                 <div class="note">
-                    <p>Данная часть детализирует применение Правил 2, 3 и 4 для случаев мультиплатформенных релизов, учитывая различные модели разработки, выявленные в ходе анализа сложных кейсов (серия Harry Potter, Republic Heroes и др.).</p>
+                    <p>Данная часть детализирует применение Правил 2, 3 и 4 для случаев мультиплатформенных релизов, учитывая различные модели разработки, выявленные в ходе анализа сложных кейсов (серия Harry Potter и др.).</p>
                 </div>
 
                 <div class="important">
@@ -920,12 +855,12 @@
                         <li>Отсутствие документально подтверждённых различий в игровом дизайне (механики, структура уровней, логика прохождения).</li>
                         <li>Адаптация управления под каждую платформу не меняет базовый дизайн и классифицируется как изменение наполнения (Правило 7).</li>
                     </ul>
-                    <p><strong>Классификация:</strong> В аналитической карточке допустима компактная запись: <code>Платформа1/Платформа2/ПлатформаN - Тип - Студия - Дата - Название</code>.</p>
+                    <p><strong>Классификация:</strong> <span class="type-indicator indicator-original">ОРИГИНАЛ</span> (если это первая реализация дизайна) или <span class="type-indicator indicator-version">ВЕРСИЯ</span> (если это альтернативная реализация по отношению к другому Оригиналу). В аналитической карточке допустима компактная запись: <code>Платформа1/Платформа2/ПлатформаN - Тип - Студия - Дата - Название</code>.</p>
                     <p><strong>Примеры-эталоны:</strong></p>
                     <ul>
-                        <li><code>Cyberpunk 2077 (2020)</code> — единый Идентичный оригинал для PC, PS5, Xbox Series.</li>
-                        <li><code>Harry Potter and the Philosopher's Stone (2003)</code> — единый Оригинал-адаптация (Warthog) для PS2/Xbox/NGC.</li>
-                        <li><code>Harry Potter: Quidditch World Cup (2003)</code> — единый Идентичный оригинал (EA UK) для PS2/Xbox/NGC/PC.</li>
+                        <li><code>Cyberpunk 2077 (2020)</code> — единый Оригинал для PC, PS5, Xbox Series.</li>
+                        <li><code>Harry Potter and the Philosopher's Stone (2003)</code> — единая Версия (Warthog) для PS2/Xbox/NGC.</li>
+                        <li><code>Harry Potter: Quidditch World Cup (2003)</code> — единый Оригинал (EA UK) для PS2/Xbox/NGC/PC.</li>
                     </ul>
                 </div>
 
@@ -943,7 +878,7 @@
                     <p><strong>Примеры-эталоны:</strong></p>
                     <ul>
                         <li><code>Grand Theft Auto V (2013)</code> — Оригинал на PS3/Xbox 360; PC (2015), PS4/Xbox One (2014) — Порты.</li>
-                        <li><code>The Witcher 3 (2015)</code> — Оригинал на PS4/Xbox One/PC; Switch (2019) — Порт.</li>
+                        <li><code>Harry Potter and the Philosopher's Stone (2003)</code> — если бы мы не имели подтверждений о единой разработке, по умолчанию (Правило 3) PS2 — Оригинал/Версия, Xbox/GC — Порты. Но при наличии документального подтверждения единой разработки применяется Правило 12.</li>
                     </ul>
                 </div>
 
@@ -964,12 +899,11 @@
                         <li><code>Harry Potter and the Chamber of Secrets (2002)</code>: 
                             <ul>
                                 <li>PS2 (EA UK) — Оригинал (ведущая консольная версия с уникальным дизайном).</li>
-                                <li>Xbox/GC (Eurocom) — отдельная Версия Eurocom (разработка параллельная, дизайн отличается от PS2).</li>
-                                <li>PC (KnowWonder), PS1 (Argonaut), GBC (Griptonite), GBA (Eurocom) — первичные Версии (Правило 4).</li>
+                                <li>Xbox/GC (Eurocom) — отдельная Версия Eurocom (разработка параллельная, дизайн отличается от PS2: ограниченные зоны посадки, отсутствие отражения заклинаний, GC-эксклюзив).</li>
+                                <li>PC (KnowWonder), PS1 (Argonaut), GBC (Griptonite), GBA (Eurocom) — первичные Версии (Правило 4, так как все созданы разными студиями одновременно).</li>
                             </ul>
                         </li>
-                        <li><code>Spider-Man 2 (2004)</code>: PS2 vs PC — разные Версии.</li>
-                        <li><code>Star Wars: Republic Heroes (2009)</code>: DS (LucasArts Singapore) — Версия (отдельный дизайн).</li>
+                        <li><code>Spider-Man 2 (2004)</code>: PS2 vs PC — разные Версии (разные студии, кардинально разный дизайн).</li>
                     </ul>
                 </div>
 
@@ -978,61 +912,15 @@
                     <p>При анализе мультиплатформенного релиза необходимо последовательно применить следующие вопросы:</p>
                     <ol>
                         <li><strong>Разработчик(и):</strong> Одна студия на всех платформах или разные?</li>
-                        <li><strong>Даты релиза:</strong> Одновременные или с существенным лагом (≥ 3 месяца)?</li>
+                        <li><strong>Даты релиза:</strong> Одновременные или с существенным лагом?</li>
                         <li><strong>Документированные различия в дизайне:</strong> Есть ли независимые источники, подтверждающие изменение механик, структуры уровней, AI и т.д.?</li>
                         <li><strong>Тест «по памяти»:</strong> Сможет ли опытный игрок, прошедший версию А, пройти версию Б, используя те же стратегии и знания?</li>
                     </ol>
                     <p>На основе ответов выбирается одна из трёх моделей (Правила 12–14). В спорных случаях приоритет отдаётся документальным подтверждениям и ощущаемому игровому опыту (Правило 1).</p>
                 </div>
-
-                <!-- НОВЫЕ ПРАВИЛА 16-19 (категории мощности, sim-ship, модели, тест) -->
-                <div class="important">
-                    <h4>ПРАВИЛО 16: КАТЕГОРИИ МОЩНОСТИ ПЛАТФОРМ</h4>
-                    <p>Для классификации мультиплатформенных релизов все игровые платформы разделяются на категории по производительности. Эти категории фиксированы и не пересматриваются.</p>
-                    <table style="width:100%; margin-top:var(--space-sm);">
-                        <thead><tr><th>Категория</th><th>Платформы</th></tr></thead>
-                        <tbody>
-                            <tr><td><strong>High-end</strong></td><td>PC (high), PS5, Xbox Series X/S, PS4 Pro, Xbox One X</td></tr>
-                            <tr><td><strong>Mid-end</strong></td><td>PS4, Xbox One, Nintendo Switch (док), Steam Deck</td></tr>
-                            <tr><td><strong>Low-end</strong></td><td>PS3, Xbox 360, Wii U</td></tr>
-                            <tr><td><strong>Legacy / Handheld</strong></td><td>PS2, Xbox, GameCube, Wii, PSP, PS Vita, Nintendo 3DS, Nintendo DS, GBA, Android/iOS (устар.)</td></tr>
-                        </tbody>
-                    </table>
-                    <p><em>Примечание: список не исчерпывающий, при анализе конкретной игры категория определяется экспертным сообществом. Главный принцип — платформы с близкой производительностью относятся к одной категории.</em></p>
-                </div>
-
-                <div class="important">
-                    <h4>ПРАВИЛО 17: SIM-SHIP (ОДНОВРЕМЕННАЯ РАЗРАБОТКА) VS POST-LAUNCH (ПОСТ-РЕЛИЗ)</h4>
-                    <p><strong>Sim-ship:</strong> работа над всеми версиями начата <strong>до</strong> релиза ведущей версии; цель — одновременный выпуск на всех платформах. Выполняется той же студией или студией, вовлечённой с самого начала.</p>
-                    <p><strong>Post-launch:</strong> работа начата <strong>после</strong> релиза ведущей версии; временной лаг обычно ≥ 3 месяцев. Часто выполняется другой студией.</p>
-                    <p>Этот критерий — <strong>основной</strong> для различения Оригинала (включая адаптации) и Порта.</p>
-                </div>
-
-                <div class="important">
-                    <h4>ПРАВИЛО 18: ТРИ МОДЕЛИ МУЛЬТИПЛАТФОРМЕННЫХ РЕЛИЗОВ (С УЧЁТОМ ПОДТИПОВ ОРИГИНАЛА)</h4>
-                    <p><strong>Модель A: Единая кроссплатформенная разработка (Sim-ship, одна студия)</strong><br>
-                    → Если все платформы в <strong>одной категории мощности</strong>: <span class="type-indicator indicator-identical">ИДЕНТИЧНЫЙ ОРИГИНАЛ</span>.<br>
-                    → Если платформы в <strong>разных категориях мощности</strong>: <span class="type-indicator indicator-adaptation">ОРИГИНАЛ-АДАПТАЦИЯ</span>.<br>
-                    <em>Примеры: Republic Heroes (PS3/X360/PC — идентичный; PS2/PSP/Wii — адаптация).</em></p>
-                    
-                    <p><strong>Модель B: Ведущая платформа + пост-релизные порты (Post-launch)</strong><br>
-                    → Ведущая версия — <span class="type-indicator indicator-original">ОРИГИНАЛ</span> (может быть идентичным или адаптацией, если sim-ship).<br>
-                    → Остальные, вышедшие позже, — <span class="type-indicator indicator-port">ПОРТ</span>.<br>
-                    <em>Примеры: GTA V (PS3/X360 — оригинал; PC/PS4 — порты).</em></p>
-                    
-                    <p><strong>Модель C: Разные версии</strong><br>
-                    → Разные студии, разный дизайн, невозможность пройти «по памяти» → <span class="type-indicator indicator-version">ВЕРСИЯ</span> (или несколько Версий).<br>
-                    <em>Примеры: Harry Potter 1 (2001), Republic Heroes DS.</em></p>
-                </div>
-
-                <div class="important">
-                    <h4>ПРАВИЛО 19: ТЕСТ «ПО ПАМЯТИ» КАК КОНТРОЛЬНЫЙ КРИТЕРИЙ</h4>
-                    <p>Если опытный игрок, досконально знающий одну версию, способен пройти другую версию, используя ту же мысленную карту уровней и последовательность действий, — это <strong>один и тот же дизайн</strong>. Если требуется переучивание, иное прохождение уровней, другие стратегии — это <strong>разные Версии</strong>.</p>
-                    <p>Тест является окончательным арбитром в спорных случаях, когда документальные свидетельства отсутствуют или противоречивы.</p>
-                </div>
             </div>
 
-            <!-- Часть 3: ФОРМИРОВАНИЕ ИТОГОВЫХ ТОПОВ (РАСШИРЕННАЯ) -->
+            <!-- Часть 3 -->
             <div class="section-divider"></div>
 
             <div class="card top-card">
@@ -1040,8 +928,8 @@
 
                 <div class="note">
                     <p><strong>ОБЩИЕ ПРИНЦИПЫ ДЛЯ ТОПОВ:</strong><br>
-                    <strong>В топах учитываются:</strong> оригинальные игры (оба подтипа); версии; порты; ремастеры; расширенные издания; полные переиздания; ремейки; самостоятельные дополнения; ре-релизы; гибридные издания.<br>
-                    <strong>В топах не учитываются:</strong> DLC; отдельные режимы; коллекции и сборники как отдельные позиции; обратная совместимость и встроенные игры.</p>
+                    <strong>В топах учитываются:</strong> оригинальные игры; версии; ремастеры; полные переиздания; ремейки; самостоятельные дополнения; <strong>ре-релизы</strong>.<br>
+                    <strong>В топах не учитываются:</strong> DLC; режимы; коллекции и сборники как отдельные позиции; <strong>обратная совместимость и встроенные игры</strong>.</p>
                 </div>
 
                 <h3>ПРАВИЛО 3.1: ТИПЫ, ВСЕГДА ПОПАДАЮЩИЕ В ТОП КАК ОТДЕЛЬНЫЕ ПОЗИЦИИ</h3>
@@ -1054,28 +942,23 @@
 
                 <h3>ПРАВИЛО 3.2: ТИПЫ, КОНКУРИРУЮЩИЕ ЗА ОДНУ ПОЗИЦИЮ В ТОПЕ (ПРАВИЛО «ЛУЧШЕЙ РЕАЛИЗАЦИИ»)</h3>
                 <ul>
-                    <li><span class="type-indicator indicator-original">ОРИГИНАЛ</span> (оба подтипа: идентичный и адаптация)</li>
-                    <li><span class="type-indicator indicator-port">ПОРТ</span></li>
-                    <li><span class="type-indicator indicator-remaster">РЕМАСТЕР</span></li>
-                    <li><span class="type-indicator indicator-expanded">РАСШИРЕННОЕ ИЗДАНИЕ</span></li>
-                    <li><span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span></li>
-                    <li><span class="type-indicator indicator-hybrid">ГИБРИДНОЕ ИЗДАНИЕ</span> (Порт + Расширенное / Порт + Ремастер)</li>
+                    <li><strong>Оригинальная игра</strong>, её <strong>Порты</strong>, её <strong>Ремастеры</strong>, её <strong>Расширенные издания (без изменений дизайна)</strong> и её <strong>Ре-релизы</strong> представляют <strong>один и тот же игровой дизайн</strong>.</li>
+                    <li>В итоговый топ попадает <strong>ТОЛЬКО ОДНА, НАИЛУЧШАЯ РЕАЛИЗАЦИЯ</strong> этого дизайна.</li>
+                    <li><strong>Критерии выбора «лучшей реализации»:</strong> Совокупное техническое качество, доступность (актуальность платформы), полнота контента (включая DLC из Расширенных изданий) и общее соответствие современным стандартам качества.</li>
+                    <li><strong>Пример:</strong> Для <code>The Witcher 3: Wild Hunt</code> в топ попадает <code>The Witcher 3: Wild Hunt — Game of the Year Edition</code> (Расширенное издание), представляющая лучшую и самую полную версию оригинального дизайна. Оригинал 2015 года, порты и базовые издания не учитываются.</li>
                 </ul>
-                <p>Все перечисленные типы представляют <strong>один и тот же игровой дизайн</strong>. В итоговый топ попадает <strong>ТОЛЬКО ОДНА, НАИЛУЧШАЯ РЕАЛИЗАЦИЯ</strong> этого дизайна.</p>
-                <p><strong>Критерии выбора «лучшей реализации»:</strong> Совокупное техническое качество, доступность (актуальность платформы), полнота контента (включая DLC из Расширенных изданий) и общее соответствие современным стандартам качества.</p>
-                <p><strong>Пример:</strong> Для <code>The Witcher 3: Wild Hunt</code> в топ попадает <code>The Witcher 3: Wild Hunt — Game of the Year Edition</code> (Расширенное издание), представляющая лучшую и самую полную версию оригинального дизайна. Оригинал 2015 года, порты и базовые издания не учитываются.</p>
 
                 <div class="important">
                     <h4>ИТОГОВЫЙ АЛГОРИТМ ДЛЯ ТОПА:</h4>
                     <ol>
-                        <li>Определите все релизы, относящиеся к одному игровому дизайну (Оригинал + Порты + Ремастеры + Расширенные издания + Ре-релизы + Гибридные издания).</li>
+                        <li>Определите все релизы, относящиеся к одному игровому дизайну (Оригинал + Порты + Ремастеры + Расширенные издания + <strong>Ре-релизы</strong>).</li>
                         <li>Выберите среди них <strong>одну лучшую реализацию</strong> по указанным критериям. Это и будет единственный представитель данного дизайна в топе.</li>
                         <li><strong>Версии, Ремейки, Полные переиздания и Самостоятельные дополнения</strong> добавляйте в топ <strong>автоматически</strong> как отдельные позиции, независимо от других релизов.</li>
                     </ol>
                 </div>
             </div>
 
-            <!-- Часть 4: ФОРМАТ АНАЛИТИЧЕСКОЙ КАРТОЧКИ ИГРЫ -->
+            <!-- Часть 4 -->
             <div class="section-divider"></div>
 
             <div class="card">
@@ -1084,7 +967,7 @@
 
                 <div class="code-block">
 <strong>Название игры (Год первого релиза)</strong>
-*   <strong>Главный вывод:</strong> (Кратко: есть/нет единого оригинала, преобладающий тип, модель разработки).
+*   <strong>Главный вывод:</strong> (Кратко: есть/нет единого оригинала, преобладающий тип).
 *   <strong>Хронологическая таблица:</strong>
     | Год | Точная дата | Платформа / Издание | Студия-разработчик | <strong>Тип</strong> | Краткое обоснование (правило) |
     |---|---|---|---|---|---|
@@ -1095,7 +978,7 @@
                 <p><strong>РЕКОМЕНДУЕМЫЙ ФОРМАТ ЗАПИСИ ДЛЯ ЕДИНОЙ КРОССПЛАТФОРМЕННОЙ ВЕРСИИ:</strong> <code>Платформа1/Платформа2/ПлатформаN - Тип - Студия - Дата - Название</code>. Данная запись однозначно идентифицирует единую версию и экономит место.</p>
             </div>
 
-            <!-- Часть 5: ПРИМЕРЫ-ЭТАЛОНЫ ДЛЯ АНАЛИЗА (РАСШИРЕННАЯ) -->
+            <!-- Часть 5 -->
             <div class="section-divider"></div>
 
             <div class="card">
@@ -1110,64 +993,69 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Единый идентичный оригинал</strong></td>
-                            <td><code>Cyberpunk 2077</code><br><code>Star Wars Jedi: Fallen Order</code></td>
-                            <td>Один дизайн, одна студия, одновременный релиз на платформах одной категории. Запись: единый оригинал без разделения.</td>
+                            <td><strong>Единый оригинал на N платформах</strong></td>
+                            <td><code>Star Wars Jedi: Fallen Order</code><br><code>Cyberpunk 2077</code></td>
+                            <td>Один дизайн, одна студия, одновременный релиз на нескольких платформах. Классифицируется как единый Оригинал.</td>
                         </tr>
                         <tr>
-                            <td><strong>Оригинал-адаптация</strong></td>
-                            <td><code>Harry Potter 2003</code> (PS2/Xbox/GC)<br><code>Republic Heroes</code> (PS2/PSP/Wii)</td>
-                            <td>Sim-ship, одна студия, разные категории мощности. Те же уровни, адаптированные ассеты. Запись: отдельная строка с типом <span class="type-indicator indicator-adaptation">ОРИГИНАЛ-АДАПТАЦИЯ</span>.</td>
+                            <td><strong>Отсутствие оригинала, только версии</strong></td>
+                            <td><code>Harry Potter and the Philosopher's Stone</code> (2001)</td>
+                            <td>Разные студии, разный дизайн для разных платформ. Единого оригинала не существует — только первичные Версии.</td>
                         </tr>
                         <tr>
-                            <td><strong>Порт (post-launch)</strong></td>
-                            <td><code>GTA V</code> PC (2015)<br><code>The Witcher 3</code> Switch (2019)</td>
-                            <td>Перенос после релиза, часто другой студией. Тот же дизайн. Конкурирует с оригиналом.</td>
+                            <td><strong>Оригинал + Порты (эвристика PS2)</strong></td>
+                            <td><code>Harry Potter: Quidditch World Cup</code> (2003)</td>
+                            <td>PS2 — оригинал/версия, PC/Xbox/GC — порты (тот же дизайн), GBA — версия (другой дизайн).</td>
                         </tr>
                         <tr>
-                            <td><strong>Версия (разные студии, разный дизайн)</strong></td>
-                            <td><code>Harry Potter 1</code> (2001): PS1 vs PC<br><code>Republic Heroes</code> DS</td>
-                            <td>Разные разработчики, невозможно пройти «по памяти». Всегда отдельно в топе.</td>
+                            <td><strong>Единая кросс-платформенная версия (Правило 12)</strong></td>
+                            <td><code>Harry Potter and the Philosopher's Stone</code> (2003) — PS2/Xbox/GC</td>
+                            <td>Одна студия (Warthog), параллельная разработка, идентичный дизайн, одновременный релиз. Классифицируется как единая Версия (запись: PS2/Xbox/NGC - Версия игры - Warthog - 2003).</td>
                         </tr>
                         <tr>
-                            <td><strong>Ремейк</strong></td>
-                            <td><code>Resident Evil 2 (2019)</code><br><code>Panzer Dragoon: Remake (2020)</code></td>
-                            <td>Новый дизайн, отдельная позиция в топе.</td>
+                            <td><strong>Разные версии для разных платформ (Правило 14)</strong></td>
+                            <td><code>Harry Potter and the Chamber of Secrets</code> (2002) — PS2 vs Xbox/GC</td>
+                            <td>PS2 (EA UK) и Xbox/GC (Eurocom) — разные студии, разные дизайны (задокументированные отличия в механиках полёта, отражении заклинаний, AI). Классифицируются как разные Версии.</td>
                         </tr>
                         <tr>
-                            <td><strong>Ремастер</strong></td>
-                            <td><code>The Last of Us Remastered</code><br><code>Dark Souls Remastered</code></td>
-                            <td>Техническое улучшение, дизайн сохранён. Конкурирует за одно место.</td>
+                            <td><strong>Версия игры (альтернативный дизайн)</strong></td>
+                            <td><code>Spider-Man 2</code> (2004) PC vs PS2</td>
+                            <td>Разный левел-дизайн и механики. Игрок, знающий одну версию, не сможет пройти другую «по памяти».</td>
                         </tr>
                         <tr>
-                            <td><strong>Расширенное издание</strong></td>
-                            <td><code>Resident Evil: Director's Cut</code><br><code>The Witcher 3: GOTY Edition</code></td>
-                            <td>Дополнительный контент, тот же дизайн. Лучшая реализация (если качество не уступает).</td>
+                            <td><strong>Ремейк vs Ремастер/Переиздание</strong></td>
+                            <td><code>Resident Evil 2 (2019)</code> — ремейк.<br><code>The Last of Us Part I (2022)</code> — полное переиздание.</td>
+                            <td>Ремейк: новый дизайн (в топ отдельно). Переиздание: сохранённый дизайн (конкурирует с оригиналом).</td>
                         </tr>
                         <tr>
-                            <td><strong>Гибридное издание (Порт+Расширенное)</strong></td>
-                            <td><code>Resident Evil: Deadly Silence</code><br><code>Panzer Dragoon PS2 (Sega Ages)</code></td>
-                            <td>Содержит точный порт и модифицированный режим. Лучшая реализация дизайна.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ре-релиз (Compatibility Release)</strong></td>
-                            <td><code>Resident Evil (1997, PC)</code> на GOG (2024)</td>
-                            <td>Цифровой перевыпуск, совместимость, не порт. Конкурирует за лучшую реализацию.</td>
+                            <td><strong>Расширенное издание для топа</strong></td>
+                            <td><code>The Witcher 3: Wild Hunt — GOTY Edition</code></td>
+                            <td><strong>Кандидат в топ</strong> как лучшая реализация оригинального дизайна (включает все DLC, патчи).</td>
                         </tr>
                         <tr>
                             <td><strong>Коллекция (не отдельная позиция)</strong></td>
-                            <td><code>Halo: The Master Chief Collection</code>, <code>Mass Effect Legendary Edition</code></td>
-                            <td>Анализируются <strong>игры внутри</strong> коллекции. Сама коллекция в топ не попадает.</td>
+                            <td><code>Halo: The Master Chief Collection</code>, <code>Mass Effect Legendary Edition</code>, <code>Unreal Gold</code></td>
+                            <td>Анализируются <strong>игры внутри</strong> коллекции. Сама коллекция в топ не попадает как отдельное произведение.</td>
                         </tr>
                         <tr>
-                            <td><strong>Обратная совместимость / встроенная игра</strong></td>
-                            <td>Запуск диска <code>Halo 2</code> на Xbox 360<br><code>Panzer Dragoon</code> в <code>Panzer Dragoon Orta</code></td>
-                            <td><strong>Не является релизом</strong>. Не учитывается (Правило 10).</td>
+                            <td><strong>Гибридное издание (Порт + Расширенное)</strong></td>
+                            <td><code>Resident Evil: Deadly Silence</code> (NDS)</td>
+                            <td>Содержит точный <strong>Порт</strong> (Classic Mode) и <strong>модифицированный контент</strong> (Rebirth Mode) в одном издании. Классифицируется как «Порт + Расширенное издание». <strong>Кандидат в топ</strong> как лучшая реализация своего дизайна.</td>
                         </tr>
                         <tr>
-                            <td><strong>Три модели (полный кейс)</strong></td>
-                            <td><code>Star Wars: Republic Heroes (2009)</code></td>
-                            <td>PS3/X360/PC — идентичный оригинал; PS2/PSP/Wii — оригинал-адаптация; DS — версия. Каждая группа анализируется отдельно.</td>
+                            <td><strong>Ре-релиз (Compatibility Release)</strong></td>
+                            <td><code>Resident Evil (1997, PC)</code> — релиз на GOG (2024)</td>
+                            <td>Официальный цифровой перевыпуск <strong>той же версии игры</strong> с обеспечением совместимости. <strong>Не является новым портом</strong>. Конкурирует за место лучшей реализации оригинального PC-дизайна.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Игнорирование обратной совместимости</strong></td>
+                            <td>Запуск диска <code>Halo 2 (Xbox, 2004)</code> на Xbox 360.</td>
+                            <td><strong>Не является релизом</strong>. Это техническая возможность консоли. В классификации игра относится к своему исходному релизу 2004 года на Xbox.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Двойная классификация (Ре-релиз + Сборник)</strong></td>
+                            <td><code>Resident Evil: Director's Cut</code> в <code>17th Anniversary Edition (2013)</code></td>
+                            <td><strong>Тип:</strong> <span class="type-indicator indicator-rerelease">РЕ-РЕЛИЗ</span> (PSN). <strong>Платформа:</strong> PlayStation 3 (в составе сборника). Учитывается как официальный релиз игры.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1175,8 +1063,8 @@
 
             <div class="footer">
                 <p>© Система классификации видеоигровых произведений | Геймдизайн-гайд (Полный канон)</p>
-                <p>Версия 5.5 | Профессиональный аналитический инструмент</p>
-                <p><em>Дополнен и уточнён на основе анализа сложных случаев (серия Harry Potter, Panzer Dragoon, Republic Heroes, Resident Evil). Введены подтипы Оригинала, категории мощности платформ, модели разработки, унифицировано определение Расширенного издания и Ги бридных изданий.</em></p>
+                <p>Версия 4.0 | Профессиональный аналитический инструмент</p>
+                <p><em>Дополнен и уточнён на основе анализа сложных случаев (серия Harry Potter, Resident Evil и др.)</em></p>
             </div>
         </main>
     </div>
